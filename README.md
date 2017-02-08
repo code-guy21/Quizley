@@ -17,7 +17,7 @@ Giani Francis
 Brandon Marcoux
 ####################
 ####################
-Quizley
+***Quizley***
 Quizely is an aplication that is intended to be used a study tool for 
 teachers and students, similar in style to the Triva Crack game that is popular on 
 mobile devices.
@@ -30,8 +30,10 @@ with updates and 'patch/build notes'.
 
 
 ***Build Notes***
+
 <2/07/2017>
 version: no version
+
 goals for first working build:
 - FUnctional database
   - the ability to be expanded as needed but nothing super fancy yet
