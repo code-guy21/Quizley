@@ -1,0 +1,25 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+target 'Testly.moc1' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+
+  # Pods for Testly.moc1
+  
+  # list
+  pod 'LBTAComponents', '~> 0.1.9'
+  
+ # login
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+ 
+  # map
+  pod 'GoogleMaps'
+  pod 'Toucan', '~> 0.6'
+
+  use_frameworks!
+
+end
+
