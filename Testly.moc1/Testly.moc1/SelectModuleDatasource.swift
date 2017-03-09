@@ -10,16 +10,16 @@ import LBTAComponents
 
 
 //makes the HomeDatasource (Jframe)
-class AddModuleDatasource: Datasource {
+class SelectModuleDatasource: Datasource {
     
     let addBasicModules: [Module] = {
         
         
-        let moduleArt = Module(name: "Art",status: "Lets paint",profileImage: #imageLiteral(resourceName: "art"))
+        let moduleArt = Module(name: "Art",status: "Lets paint",moduleImage: #imageLiteral(resourceName: "art"))
         
-        let moduleMath = Module(name: "Math",status: "Lets learn Math",profileImage: #imageLiteral(resourceName: "math"))
+        let moduleMath = Module(name: "Math",status: "Lets learn Math",moduleImage: #imageLiteral(resourceName: "math"))
         
-        let moduleHistory = Module(name: "History",status: "Lets learn History",profileImage: #imageLiteral(resourceName: "history"))
+        let moduleHistory = Module(name: "History",status: "Lets learn History",moduleImage: #imageLiteral(resourceName: "history"))
         
         return [moduleArt,moduleMath,moduleHistory]
     }()
@@ -27,23 +27,23 @@ class AddModuleDatasource: Datasource {
     let addComModules: [Module] = {
         
         
-        let moduleCop4030 = Module(name: "Cop3512",status: "UCF Computer Science I ",profileImage:#imageLiteral(resourceName: "school") )
+        let moduleCop4030 = Module(name: "Cop3512",status: "UCF Computer Science I ",moduleImage:#imageLiteral(resourceName: "school") )
         
-        let moduleCop4020 = Module(name: "Cop4020",status: "UCF Programming Languages",profileImage: #imageLiteral(resourceName: "school"))
+        let moduleCop4020 = Module(name: "Cop4020",status: "UCF Programming Languages",moduleImage: #imageLiteral(resourceName: "school"))
         
-        let moduleCop1000 = Module(name: "Cop1000",status: "UCF Intro to C",profileImage: #imageLiteral(resourceName: "school"))
+        let moduleCop1000 = Module(name: "Cop1000",status: "UCF Intro to C",moduleImage: #imageLiteral(resourceName: "school"))
         
         return [moduleCop4030, moduleCop4020, moduleCop1000]
     }()
     
     //what type of footer
         override func footerClasses() -> [DatasourceCell.Type]? {
-            return [AddBasicModuleFooter.self]
+            return [SelectBasicModuleFooter.self]
         }
     
     //what type of header
         override func headerClasses() -> [DatasourceCell.Type]? {
-            return [AddBasicModuleHeader.self,AddCompModuleHeader.self]
+            return [SelectBasicModuleHeader.self,SelectCompModuleHeader.self]
         }
     
     //what type of cells

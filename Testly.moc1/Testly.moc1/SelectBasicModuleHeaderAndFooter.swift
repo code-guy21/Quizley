@@ -8,7 +8,7 @@
 
 import LBTAComponents
 
-class AddBasicModuleHeader: DatasourceCell{
+class SelectBasicModuleHeader: DatasourceCell{
     
     //here we make a lable for the header
     let textLabel: UILabel = {
@@ -32,7 +32,7 @@ class AddBasicModuleHeader: DatasourceCell{
     }
 }
 
-class AddBasicModuleFooter: DatasourceCell{
+class SelectBasicModuleFooter: DatasourceCell{
     
     //here we make a lable for the header
 //    let textLabel: UILabel = {

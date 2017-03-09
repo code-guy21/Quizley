@@ -11,5 +11,5 @@ import UIKit
 struct Module {
     let name:String
     let status: String
-    let profileImage: UIImage
+    let moduleImage: UIImage
 }

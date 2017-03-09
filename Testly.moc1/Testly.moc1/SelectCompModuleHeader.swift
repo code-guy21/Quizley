@@ -8,7 +8,7 @@
 
 import LBTAComponents
 
-class AddCompModuleHeader: DatasourceCell{
+class SelectCompModuleHeader: DatasourceCell{
     
     //here we make a lable for the header
     let textLabel: UILabel = {

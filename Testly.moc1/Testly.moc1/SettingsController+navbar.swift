@@ -1,8 +1,8 @@
 //
-//  AddModuleController+navbar.swift
+//  SettingsController+navbar.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 3/6/17.
+//  Created by Miguel Chavez on 3/9/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import LBTAComponents
 import Firebase
 
-extension AddModuleController{
+extension SettingsController{
     
     //makeing the NavigationBar
     func setupNavigationBarItemList()

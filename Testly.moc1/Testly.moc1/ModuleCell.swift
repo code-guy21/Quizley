@@ -16,7 +16,7 @@ class ModuleCell: DatasourceCell {
             guard let module = datasourceItem as? Module else { return }
             nameLabel.text = module.name + ":"
             statusLabel.text = module.status
-            profileImageView.image = module.profileImage
+            moduleImageView.image = module.moduleImage
         }
     }
     
@@ -39,11 +39,11 @@ class ModuleCell: DatasourceCell {
     }()
     
     //this make a spot for the image in the twitter app Blue
-    let profileImageView: UIImageView = {
+    let moduleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "math")
         //var color = 0
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         
@@ -65,13 +65,13 @@ class ModuleCell: DatasourceCell {
         // all the subareas in the cell (add JmenuItem to JmenuBar)
         addSubview(nameLabel)
         addSubview(statusLabel)
-        addSubview(profileImageView)
+        addSubview(moduleImageView)
         
         //profileImage Blue
-        profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
+        moduleImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         
         //nameLable Green
-        nameLabel.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 150, heightConstant: 20)
+        nameLabel.anchor(moduleImageView.topAnchor, left: moduleImageView.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 150, heightConstant: 20)
         
         //statusLable Red
         statusLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 0 , bottomConstant: 0, rightConstant: 0, widthConstant: 150, heightConstant: 20)

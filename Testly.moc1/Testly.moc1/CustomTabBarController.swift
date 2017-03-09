@@ -22,7 +22,7 @@ class CustomTabBarConroller: UITabBarController {
         playController.tabBarItem.title = "play"
         playController.tabBarItem.image = UIImage(named: "play")
         
-        let addController = UINavigationController(rootViewController: AddModuleController())
+        let addController = UINavigationController(rootViewController: SelectModuleController())
         addController.tabBarItem.title = "add"
         addController.tabBarItem.image = UIImage(named: "add")
         

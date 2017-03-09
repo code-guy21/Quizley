@@ -9,7 +9,7 @@
 import LBTAComponents
 import Firebase
 
-class AddModuleController: DatasourceController {
+class SelectModuleController: DatasourceController {
     
     //handel rotating the screen to reset all the views
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -28,7 +28,7 @@ class AddModuleController: DatasourceController {
         
         setupNavigationBarItemList()
         //this was how we use to set
-        let list = AddModuleDatasource()
+        let list = SelectModuleDatasource()
         self.datasource = list
         
     }
@@ -58,10 +58,17 @@ class AddModuleController: DatasourceController {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let layout = UICollectionViewFlowLayout()
-        let controller = GameController()
+        if indexPath.section == 1 {
+            let controller = AddCompModuleController(myStg: "hi")
+            navigationController?.pushViewController(controller, animated: true)
+        }
+        else {
+        let controller = AddBasicModuleController(myStg: "hi")
         navigationController?.pushViewController(controller, animated: true)
+        }
     }
+    
+    
     func checkIfUserIsLoggedIn() {
         if FIRAuth.auth()?.currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)

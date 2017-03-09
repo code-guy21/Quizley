@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		26A6B2AE6B8062D4F858BDD7 /* Pods_Testly_moc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */; };
+		CF03FB431E718F0C00470CB5 /* SecondGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB421E718F0C00470CB5 /* SecondGameController.swift */; };
+		CF03FB471E71994800470CB5 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB461E71994800470CB5 /* CircularTransition.swift */; };
+		CF03FB4B1E71DCA600470CB5 /* SettingsController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4A1E71DCA600470CB5 /* SettingsController+navbar.swift */; };
+		CF03FB4D1E71DD3900470CB5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */; };
+		CF03FB4F1E71DD7F00470CB5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4E1E71DD7F00470CB5 /* User.swift */; };
+		CF03FB511E71DFF800470CB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB501E71DFF800470CB5 /* Settings.swift */; };
+		CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */; };
+		CF03FB551E71E6FB00470CB5 /* SelectedSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */; };
 		CF58779E1E6DBC230082FB0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF58779D1E6DBC230082FB0E /* AppDelegate.swift */; };
 		CF5877A01E6DBC230082FB0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF58779F1E6DBC230082FB0E /* ViewController.swift */; };
 		CF5877A31E6DBC230082FB0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A11E6DBC230082FB0E /* Main.storyboard */; };
@@ -24,16 +32,26 @@
 		CF5877CE1E6DD17A0082FB0E /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877CD1E6DD17A0082FB0E /* Module.swift */; };
 		CF5877D01E6DD1C90082FB0E /* ModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877CF1E6DD1C90082FB0E /* ModuleCell.swift */; };
 		CF5877D21E6DD37A0082FB0E /* ModuleDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D11E6DD37A0082FB0E /* ModuleDatasource.swift */; };
-		CF5877D41E6DD5E50082FB0E /* AddModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D31E6DD5E50082FB0E /* AddModuleController.swift */; };
-		CF5877D61E6DD6020082FB0E /* AddModuleController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D51E6DD6020082FB0E /* AddModuleController+navbar.swift */; };
-		CF5877D81E6DD6420082FB0E /* AddModuleDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D71E6DD6420082FB0E /* AddModuleDatasource.swift */; };
-		CF5877DA1E6DD97A0082FB0E /* AddBasicModuleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D91E6DD97A0082FB0E /* AddBasicModuleHeader.swift */; };
-		CF5877DC1E6DDB060082FB0E /* AddCompModuleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877DB1E6DDB060082FB0E /* AddCompModuleHeader.swift */; };
+		CF5877D41E6DD5E50082FB0E /* SelectModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D31E6DD5E50082FB0E /* SelectModuleController.swift */; };
+		CF5877D61E6DD6020082FB0E /* SelectModuleController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D51E6DD6020082FB0E /* SelectModuleController+navbar.swift */; };
+		CF5877D81E6DD6420082FB0E /* SelectModuleDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D71E6DD6420082FB0E /* SelectModuleDatasource.swift */; };
+		CF5877DA1E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */; };
+		CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */; };
+		CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */; };
+		CF5877FE1E70DC030082FB0E /* AddCompModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31126084938F895605C4EC57 /* Pods-Testly.moc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.debug.xcconfig"; sourceTree = "<group>"; };
 		781E4225C4DEA5DEBC0F52E7 /* Pods-Testly.moc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.release.xcconfig"; sourceTree = "<group>"; };
+		CF03FB421E718F0C00470CB5 /* SecondGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondGameController.swift; sourceTree = "<group>"; };
+		CF03FB461E71994800470CB5 /* CircularTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
+		CF03FB4A1E71DCA600470CB5 /* SettingsController+navbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsController+navbar.swift"; sourceTree = "<group>"; };
+		CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		CF03FB4E1E71DD7F00470CB5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF03FB501E71DFF800470CB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDatasource.swift; sourceTree = "<group>"; };
+		CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSettingController.swift; sourceTree = "<group>"; };
 		CF58779A1E6DBC230082FB0E /* Testly.moc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testly.moc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF58779D1E6DBC230082FB0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF58779F1E6DBC230082FB0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,11 +70,13 @@
 		CF5877CD1E6DD17A0082FB0E /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		CF5877CF1E6DD1C90082FB0E /* ModuleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCell.swift; sourceTree = "<group>"; };
 		CF5877D11E6DD37A0082FB0E /* ModuleDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleDatasource.swift; sourceTree = "<group>"; };
-		CF5877D31E6DD5E50082FB0E /* AddModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleController.swift; sourceTree = "<group>"; };
-		CF5877D51E6DD6020082FB0E /* AddModuleController+navbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddModuleController+navbar.swift"; sourceTree = "<group>"; };
-		CF5877D71E6DD6420082FB0E /* AddModuleDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleDatasource.swift; sourceTree = "<group>"; };
-		CF5877D91E6DD97A0082FB0E /* AddBasicModuleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBasicModuleHeader.swift; sourceTree = "<group>"; };
-		CF5877DB1E6DDB060082FB0E /* AddCompModuleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCompModuleHeader.swift; sourceTree = "<group>"; };
+		CF5877D31E6DD5E50082FB0E /* SelectModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModuleController.swift; sourceTree = "<group>"; };
+		CF5877D51E6DD6020082FB0E /* SelectModuleController+navbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SelectModuleController+navbar.swift"; sourceTree = "<group>"; };
+		CF5877D71E6DD6420082FB0E /* SelectModuleDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModuleDatasource.swift; sourceTree = "<group>"; };
+		CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBasicModuleHeaderAndFooter.swift; sourceTree = "<group>"; };
+		CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCompModuleHeader.swift; sourceTree = "<group>"; };
+		CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBasicModuleController.swift; sourceTree = "<group>"; };
+		CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCompModuleController.swift; sourceTree = "<group>"; };
 		D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testly_moc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,8 +148,11 @@
 			isa = PBXGroup;
 			children = (
 				CF5877CD1E6DD17A0082FB0E /* Module.swift */,
+				CF03FB4E1E71DD7F00470CB5 /* User.swift */,
+				CF03FB501E71DFF800470CB5 /* Settings.swift */,
 				CF5877D11E6DD37A0082FB0E /* ModuleDatasource.swift */,
-				CF5877D71E6DD6420082FB0E /* AddModuleDatasource.swift */,
+				CF5877D71E6DD6420082FB0E /* SelectModuleDatasource.swift */,
+				CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,14 +160,19 @@
 		CF5877B01E6DBE280082FB0E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CF5877C11E6DC17C0082FB0E /* CustomTabBarController.swift */,
 				CF5877B91E6DBF290082FB0E /* LoginController.swift */,
 				CF5877B71E6DBED00082FB0E /* ListController.swift */,
 				CF5877BB1E6DBF3F0082FB0E /* ListController+navbar.swift */,
-				CF5877D31E6DD5E50082FB0E /* AddModuleController.swift */,
-				CF5877D51E6DD6020082FB0E /* AddModuleController+navbar.swift */,
-				CF5877C91E6DCDF30082FB0E /* GameController.swift */,
+				CF5877D31E6DD5E50082FB0E /* SelectModuleController.swift */,
+				CF5877D51E6DD6020082FB0E /* SelectModuleController+navbar.swift */,
 				CF5877CB1E6DD0A70082FB0E /* SettingsController.swift */,
-				CF5877C11E6DC17C0082FB0E /* CustomTabBarController.swift */,
+				CF03FB4A1E71DCA600470CB5 /* SettingsController+navbar.swift */,
+				CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */,
+				CF5877C91E6DCDF30082FB0E /* GameController.swift */,
+				CF03FB421E718F0C00470CB5 /* SecondGameController.swift */,
+				CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */,
+				CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -153,8 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				CF5877CF1E6DD1C90082FB0E /* ModuleCell.swift */,
-				CF5877D91E6DD97A0082FB0E /* AddBasicModuleHeader.swift */,
-				CF5877DB1E6DDB060082FB0E /* AddCompModuleHeader.swift */,
+				CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */,
+				CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */,
+				CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */,
+				CF03FB461E71994800470CB5 /* CircularTransition.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -294,22 +324,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5877D41E6DD5E50082FB0E /* AddModuleController.swift in Sources */,
+				CF5877D41E6DD5E50082FB0E /* SelectModuleController.swift in Sources */,
 				CF5877CC1E6DD0A70082FB0E /* SettingsController.swift in Sources */,
 				CF5877D21E6DD37A0082FB0E /* ModuleDatasource.swift in Sources */,
-				CF5877DC1E6DDB060082FB0E /* AddCompModuleHeader.swift in Sources */,
+				CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */,
+				CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */,
 				CF5877CA1E6DCDF30082FB0E /* GameController.swift in Sources */,
 				CF5877A01E6DBC230082FB0E /* ViewController.swift in Sources */,
 				CF5877D01E6DD1C90082FB0E /* ModuleCell.swift in Sources */,
-				CF5877D81E6DD6420082FB0E /* AddModuleDatasource.swift in Sources */,
+				CF03FB4F1E71DD7F00470CB5 /* User.swift in Sources */,
+				CF03FB431E718F0C00470CB5 /* SecondGameController.swift in Sources */,
+				CF5877D81E6DD6420082FB0E /* SelectModuleDatasource.swift in Sources */,
+				CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */,
+				CF03FB4D1E71DD3900470CB5 /* SettingsCell.swift in Sources */,
 				CF5877C21E6DC17C0082FB0E /* CustomTabBarController.swift in Sources */,
-				CF5877D61E6DD6020082FB0E /* AddModuleController+navbar.swift in Sources */,
-				CF5877DA1E6DD97A0082FB0E /* AddBasicModuleHeader.swift in Sources */,
+				CF5877D61E6DD6020082FB0E /* SelectModuleController+navbar.swift in Sources */,
+				CF03FB551E71E6FB00470CB5 /* SelectedSettingController.swift in Sources */,
+				CF5877DA1E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift in Sources */,
 				CF5877BA1E6DBF290082FB0E /* LoginController.swift in Sources */,
 				CF58779E1E6DBC230082FB0E /* AppDelegate.swift in Sources */,
+				CF03FB471E71994800470CB5 /* CircularTransition.swift in Sources */,
+				CF03FB511E71DFF800470CB5 /* Settings.swift in Sources */,
 				CF5877B81E6DBED00082FB0E /* ListController.swift in Sources */,
 				CF5877CE1E6DD17A0082FB0E /* Module.swift in Sources */,
+				CF5877FE1E70DC030082FB0E /* AddCompModuleController.swift in Sources */,
 				CF5877BC1E6DBF3F0082FB0E /* ListController+navbar.swift in Sources */,
+				CF03FB4B1E71DCA600470CB5 /* SettingsController+navbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

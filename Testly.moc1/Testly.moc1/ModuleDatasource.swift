@@ -17,9 +17,9 @@ class ModuleDatasource: Datasource {
     
     let modules: [Module] = {
         
-        let moduleMath = Module(name: "Math",status: "Lets learn Math",profileImage: #imageLiteral(resourceName: "math"))
+        let moduleMath = Module(name: "Math",status: "Lets learn Math",moduleImage: #imageLiteral(resourceName: "math"))
         
-        let moduleHistory = Module(name: "History",status: "Lets learn History",profileImage: #imageLiteral(resourceName: "history"))
+        let moduleHistory = Module(name: "History",status: "Lets learn History",moduleImage: #imageLiteral(resourceName: "history"))
         
         return [moduleMath,moduleHistory]
     }()

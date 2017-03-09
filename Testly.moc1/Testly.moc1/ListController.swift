@@ -17,8 +17,8 @@ class ListController: DatasourceController {
     }
     
     override func viewDidLoad() {
-        handleLogout()
-        checkIfUserIsLoggedIn()
+        //handleLogout()
+        //checkIfUserIsLoggedIn()
         super.viewDidLoad()
         //        collectionView?.backgroundColor = .white
         collectionView?.backgroundColor = UIColor(r: 51, g: 105, b: 255)
@@ -30,7 +30,7 @@ class ListController: DatasourceController {
         //this was how we use to set
         let list = ModuleDatasource()
         self.datasource = list
-        
+        //print(list.modules[0].name)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -44,8 +44,8 @@ class ListController: DatasourceController {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let layout = UICollectionViewFlowLayout()
-        let controller = GameController()
+        let controller = GameController(myStg: "hi")
+//        let controller = GameController()
         navigationController?.pushViewController(controller, animated: true)
     }
     func checkIfUserIsLoggedIn() {
