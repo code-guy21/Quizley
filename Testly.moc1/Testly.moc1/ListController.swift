@@ -16,9 +16,11 @@ class ListController: DatasourceController {
         collectionViewLayout.invalidateLayout()
     }
     
+    let list = ModuleDatasource()
+    
     override func viewDidLoad() {
-        //handleLogout()
-        //checkIfUserIsLoggedIn()
+       // handleLogout()
+        checkIfUserIsLoggedIn()
         super.viewDidLoad()
         //        collectionView?.backgroundColor = .white
         collectionView?.backgroundColor = UIColor(r: 51, g: 105, b: 255)
@@ -28,9 +30,9 @@ class ListController: DatasourceController {
         
         setupNavigationBarItemList()
         //this was how we use to set
-        let list = ModuleDatasource()
+        //let list = ModuleDatasource()
         self.datasource = list
-        //print(list.modules[0].name)
+        print(list.modules[1].name)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -44,8 +46,10 @@ class ListController: DatasourceController {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = GameController(myStg: "hi")
-//        let controller = GameController()
+        SharedModuleData.shared.name = self.list.modules[indexPath.row].name
+        SharedModuleData.shared.status = self.list.modules[indexPath.row].status
+        SharedModuleData.shared.moduleImage = self.list.modules[indexPath.row].moduleImage
+        let controller = GameController()
         navigationController?.pushViewController(controller, animated: true)
     }
     func checkIfUserIsLoggedIn() {

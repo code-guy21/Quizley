@@ -16,6 +16,9 @@ class SelectModuleController: DatasourceController {
         collectionViewLayout.invalidateLayout()
     }
     
+    
+    let list = SelectModuleDatasource()
+    
     override func viewDidLoad() {
         //handleLogout()
         // checkIfUserIsLoggedIn()
@@ -28,7 +31,6 @@ class SelectModuleController: DatasourceController {
         
         setupNavigationBarItemList()
         //this was how we use to set
-        let list = SelectModuleDatasource()
         self.datasource = list
         
     }
@@ -59,12 +61,18 @@ class SelectModuleController: DatasourceController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
+            SharedModuleData.shared.name = self.list.addCompModules[indexPath.row].name
+            SharedModuleData.shared.status = self.list.addCompModules[indexPath.row].status
+            SharedModuleData.shared.moduleImage = self.list.addCompModules[indexPath.row].moduleImage
             let controller = AddCompModuleController(myStg: "hi")
             navigationController?.pushViewController(controller, animated: true)
         }
         else {
-        let controller = AddBasicModuleController(myStg: "hi")
-        navigationController?.pushViewController(controller, animated: true)
+            SharedModuleData.shared.name = self.list.addBasicModules[indexPath.row].name
+            SharedModuleData.shared.status = self.list.addBasicModules[indexPath.row].status
+            SharedModuleData.shared.moduleImage = self.list.addBasicModules[indexPath.row].moduleImage
+            let controller = AddBasicModuleController(myStg: "hi")
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
     

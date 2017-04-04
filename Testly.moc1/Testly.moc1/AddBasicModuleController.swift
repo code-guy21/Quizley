@@ -39,7 +39,7 @@ class AddBasicModuleController: UIViewController {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Math"
+        label.text = SharedModuleData.shared.name
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
         //                label.backgroundColor = .blue
@@ -49,7 +49,7 @@ class AddBasicModuleController: UIViewController {
     
     let statusLabel: UILabel = {
         let label = UILabel()
-        label.text = "Lets learn how to add"
+        label.text = SharedModuleData.shared.status
         label.font = UIFont.systemFont(ofSize: 26)
         label.textAlignment = .center
         //                label.backgroundColor = .red
@@ -59,7 +59,7 @@ class AddBasicModuleController: UIViewController {
     
     let moduleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "math")
+        imageView.image = SharedModuleData.shared.moduleImage
         var color = 0
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true

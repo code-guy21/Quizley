@@ -24,7 +24,7 @@ class SelectModuleDatasource: Datasource {
         return [moduleArt,moduleMath,moduleHistory]
     }()
     
-    let addComModules: [Module] = {
+    let addCompModules: [Module] = {
         
         
         let moduleCop4030 = Module(name: "Cop3512",status: "UCF Computer Science I ",moduleImage:#imageLiteral(resourceName: "school") )
@@ -54,7 +54,7 @@ class SelectModuleDatasource: Datasource {
     //number of cells
     override func numberOfItems(_ section: Int) -> Int {
         if section == 1 {
-            return addComModules.count
+            return addCompModules.count
         }
         return addBasicModules.count
         
@@ -67,7 +67,7 @@ class SelectModuleDatasource: Datasource {
     //move words to cell from array
     override func item(_ indexPath: IndexPath) -> Any? {
         if indexPath.section == 1 {
-            return addComModules[indexPath.item]
+            return addCompModules[indexPath.item]
         }
         return addBasicModules[indexPath.item]
     }

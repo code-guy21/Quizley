@@ -27,11 +27,11 @@ class AddCompModuleController: UIViewController {
     
     let classCodeTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "Class Code"
-        textField.textAlignment = .center
-        textField.backgroundColor = .white
-        textField.layer.cornerRadius = 5
-        textField.layer.masksToBounds = true
+        
+        textField.placeholder = "Class Code"
+        textField.backgroundColor = UIColor(white: 1, alpha: 0.15)
+        textField.borderStyle = .roundedRect
+        textField.font = UIFont.systemFont(ofSize: 20)
         return textField
     }()
     
@@ -48,7 +48,7 @@ class AddCompModuleController: UIViewController {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Math"
+        label.text = SharedModuleData.shared.name
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
         //                label.backgroundColor = .blue
@@ -58,7 +58,7 @@ class AddCompModuleController: UIViewController {
     
     let statusLabel: UILabel = {
         let label = UILabel()
-        label.text = "Lets learn how to add"
+        label.text = SharedModuleData.shared.status
         label.font = UIFont.systemFont(ofSize: 26)
         label.textAlignment = .center
         //                label.backgroundColor = .red
@@ -68,7 +68,7 @@ class AddCompModuleController: UIViewController {
     
     let moduleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "math")
+        imageView.image = SharedModuleData.shared.moduleImage
         var color = 0
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true

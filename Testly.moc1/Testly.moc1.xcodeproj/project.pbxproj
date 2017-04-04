@@ -39,6 +39,7 @@
 		CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */; };
 		CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */; };
 		CF5877FE1E70DC030082FB0E /* AddCompModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */; };
+		CF69DE361E7AEB4C00C81181 /* SharedModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCompModuleHeader.swift; sourceTree = "<group>"; };
 		CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBasicModuleController.swift; sourceTree = "<group>"; };
 		CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCompModuleController.swift; sourceTree = "<group>"; };
+		CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedModuleData.swift; sourceTree = "<group>"; };
 		D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testly_moc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 				CF5877D11E6DD37A0082FB0E /* ModuleDatasource.swift */,
 				CF5877D71E6DD6420082FB0E /* SelectModuleDatasource.swift */,
 				CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */,
+				CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF69DE361E7AEB4C00C81181 /* SharedModuleData.swift in Sources */,
 				CF5877D41E6DD5E50082FB0E /* SelectModuleController.swift in Sources */,
 				CF5877CC1E6DD0A70082FB0E /* SettingsController.swift in Sources */,
 				CF5877D21E6DD37A0082FB0E /* ModuleDatasource.swift in Sources */,

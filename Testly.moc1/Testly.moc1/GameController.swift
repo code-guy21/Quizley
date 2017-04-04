@@ -12,19 +12,6 @@ import Toucan
 
 class GameController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    public var myString: String = ""
-    var myString2: String = ""
-    convenience init() {
-        self.init(myStg: nil)
-    }
-    
-    init(myStg: String?) {
-        self.myString = myStg!
-        super.init(nibName: nil, bundle: nil)
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     let startButton: UIButton = {
         let button = UIButton()
@@ -39,7 +26,7 @@ class GameController: UIViewController, UIViewControllerTransitioningDelegate {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Math"
+        label.text = SharedModuleData.shared.name
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
 //                label.backgroundColor = .blue
@@ -49,7 +36,7 @@ class GameController: UIViewController, UIViewControllerTransitioningDelegate {
     
     let statusLabel: UILabel = {
         let label = UILabel()
-        label.text = "Lets learn how to add"
+        label.text = SharedModuleData.shared.status
         label.font = UIFont.systemFont(ofSize: 26)
         label.textAlignment = .center
 //                label.backgroundColor = .red
@@ -59,7 +46,7 @@ class GameController: UIViewController, UIViewControllerTransitioningDelegate {
     
     let moduleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "math")
+        imageView.image = SharedModuleData.shared.moduleImage
         var color = 0
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true

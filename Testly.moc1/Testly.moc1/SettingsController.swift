@@ -16,6 +16,9 @@ class SettingsController: DatasourceController {
         collectionViewLayout.invalidateLayout()
     }
     
+    
+    let list = SettingsDatasource()
+    
     override func viewDidLoad() {
         //handleLogout()
         //checkIfUserIsLoggedIn()
@@ -28,7 +31,6 @@ class SettingsController: DatasourceController {
         
         setupNavigationBarItemList()
         //this was how we use to set
-        let list = SettingsDatasource()
         self.datasource = list
         //print(list.modules[0].name)
     }
@@ -44,6 +46,8 @@ class SettingsController: DatasourceController {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        SharedModuleData.shared.name = self.list.settings[indexPath.row].type
         let controller = SelectedSettingController(myStg: "hi")
         //        let controller = GameController()
         navigationController?.pushViewController(controller, animated: true)

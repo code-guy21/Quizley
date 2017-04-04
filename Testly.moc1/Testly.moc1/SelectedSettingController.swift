@@ -9,11 +9,18 @@
 import UIKit
 import LBTAComponents
 import Toucan
+import FirebaseDatabase
 
 class SelectedSettingController: UIViewController {
     
     public var myString: String = ""
-    var myString2: String = ""
+    var firstName: String = ""
+    var lastName: String = ""
+    var userName: String = ""
+    var birthday: String = ""
+    var phoneNumber: String = ""
+    var email: String = ""
+    var password: String = ""
     convenience init() {
         self.init(myStg: nil)
     }
@@ -28,7 +35,7 @@ class SelectedSettingController: UIViewController {
     
     let firstNameTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "  Miguel"
+        textField.text = "Test"
         textField.backgroundColor = .white
         return textField
     }()
@@ -54,8 +61,8 @@ class SelectedSettingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.title = "Name"
+       // let ref = FIRDatabase.reference().reference()
+        self.navigationItem.title = SharedModuleData.shared.name
         view.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
         view.addSubview(saveButton)
@@ -68,6 +75,10 @@ class SelectedSettingController: UIViewController {
         
         saveButton.anchorCenterXToSuperview()
         saveButton.anchor(lastNameTextField.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 70, heightConstant: 70)
+        
+        //ref.observe(.value, with: { snapshot in
+        //    print(snapshot.value)
+        //})
         
         
     }

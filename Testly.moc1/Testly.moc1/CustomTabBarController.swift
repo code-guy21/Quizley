@@ -30,6 +30,8 @@ class CustomTabBarConroller: UITabBarController {
         settingsController.tabBarItem.title = "settings"
         settingsController.tabBarItem.image = UIImage(named: "settings")
         
+        tabBar.tintColor = .red
+        
         viewControllers = [playController,addController,settingsController]
     }
 }

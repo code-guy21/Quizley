@@ -8,40 +8,7 @@
 
 import UIKit
 
-class CircularTransition: UIStoryboardSegue, UIViewControllerAnimatedTransitioning {
-    
-    func animate(firstVCView:UIView,
-                 secondVCView:UIView,
-                 containerView:UIView,
-                 transitionContext: UIViewControllerContextTransitioning?) {
-        
-        // Get the screen width and height.
-        let offset = secondVCView.bounds.width
-        
-        // Specify the initial position of the destination view.
-        secondVCView.frame = secondVCView.frame.offsetBy(dx: offset, dy: 0.0)
-        
-        firstVCView.superview!.addSubview(secondVCView)
-        secondVCView.alpha = 0;
-        
-        // Animate the transition.
-        UIView.animate(withDuration: self.transitionDuration(using: transitionContext!),
-                                   animations: { () -> Void in
-                                    firstVCView.frame = firstVCView.frame.offsetBy(dx: -offset, dy: 0.0)
-                                    secondVCView.frame = secondVCView.frame.offsetBy(dx: -offset, dy: 0.0)
-                                    secondVCView.alpha = 1; // emphasis
-                                    
-        }) { (Finished) -> Void in
-            if let context = transitionContext {
-                context.completeTransition(!context.transitionWasCancelled)
-            } else {
-                self.source.present(
-                    self.destination ,
-                    animated: false,
-                    completion:nil)
-            }
-        }
-    }
+class CircularTransition: NSObject{
     
     var circle = UIView()
     
@@ -60,7 +27,8 @@ class CircularTransition: UIStoryboardSegue, UIViewControllerAnimatedTransitioni
     }
     
     var transitionMode: CircularTransitionMode = .present
-
+}
+extension CircularTransition:UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
@@ -129,13 +97,6 @@ class CircularTransition: UIStoryboardSegue, UIViewControllerAnimatedTransitioni
     
     }
     
-    
-    override func perform() {
-        self.animate(firstVCView: self.source.view!,
-                     secondVCView: self.destination.view!,
-                     containerView: self.source.view!.superview!,
-                     transitionContext:nil)
-    }
 }
 
     func frameForCircle ( withViewCenter viewCenter:CGPoint, vSize:CGSize, start:CGPoint) -> CGRect {
