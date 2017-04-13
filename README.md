@@ -13,10 +13,10 @@ Zach Bischoff
 ![Screenshot](QuizlyPics/TeacherLogin.png)
 ![Screenshot](QuizlyPics/MainList.png)
 ![Screenshot](QuizlyPics/SelectedMod.png)
-![Screenshot](QuizlyPics/CountDownb4Game.png)
+![Screenshot](QuizlyPics/CountDownB4Game.png)
 ![Screenshot](QuizlyPics/InGame.png)
 ![Screenshot](QuizlyPics/ListSelect.png)
-![Screenshot](QuizlyPics/AddMode.png)
+![Screenshot](QuizlyPics/AddMod.png)
 ![Screenshot](QuizlyPics/Settings.png)
 ![Screenshot](QuizlyPics/ChangeSettings.png)
 
