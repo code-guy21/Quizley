@@ -7,17 +7,32 @@
 //
 
 import UIKit
+import Firebase
 
-class CustomTabBarConroller: UITabBarController {
+class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
+        if FIRAuth.auth()?.currentUser == nil {
+            
+            DispatchQueue.main.async {
+                
+                let loginRegisterController = LoginRegisterController()
+                // this is be the native nav contrller does not excist
+                // in loginController so we have to add it functionallty by doing this
+                let navController = UINavigationController(rootViewController: loginRegisterController)
+                self.present(navController, animated: true, completion: nil)
+                
+            }
+            return
+        }
         
-        //set up our cust bar
-        
-        //let layout = UICollectionViewFlowLayout()
-        //let friendsController = FriendsController(collectionViewLayout: layout)
-        //let recentMessagesNavController = UINavigationController(rootViewController: friendsController)
+        setupViewControllers()
+    }
+    
+
+     func setupViewControllers() {
         let playController = UINavigationController(rootViewController: ListController())
         playController.tabBarItem.title = "play"
         playController.tabBarItem.image = UIImage(named: "play")

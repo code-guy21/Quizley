@@ -19,20 +19,22 @@ class ListController: DatasourceController {
     let list = ModuleDatasource()
     
     override func viewDidLoad() {
-       // handleLogout()
-        checkIfUserIsLoggedIn()
         super.viewDidLoad()
-        //        collectionView?.backgroundColor = .white
-        collectionView?.backgroundColor = UIColor(r: 51, g: 105, b: 255)
-        
-        
-        
+        collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
         setupNavigationBarItemList()
         //this was how we use to set
         //let list = ModuleDatasource()
         self.datasource = list
         print(list.modules[1].name)
+        
+    }
+    
+    fileprivate func setupNavigationBarItemList() {
+        let navBar = navigationController?.navigationBar
+        navBar?.barTintColor = UIColor(r: 0, g: 180, b: 248)
+        navBar?.isTranslucent = false
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -44,39 +46,19 @@ class ListController: DatasourceController {
         return CGSize(width: view.frame.width, height: 70)
     }
     
+    //size the header
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SharedModuleData.shared.name = self.list.modules[indexPath.row].name
         SharedModuleData.shared.status = self.list.modules[indexPath.row].status
         SharedModuleData.shared.moduleImage = self.list.modules[indexPath.row].moduleImage
-        let controller = GameController()
+        let controller = LoadGameController()
         navigationController?.pushViewController(controller, animated: true)
-    }
-    func checkIfUserIsLoggedIn() {
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            perform(#selector(handleLogout), with: nil, afterDelay: 0)
-        } else {
-            let uid = FIRAuth.auth()?.currentUser?.uid
-            FIRDatabase.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    self.navigationItem.title = dictionary["name"] as? String
-                }
-                
-            }, withCancel: nil)
-        }
-    }
-    
-    func handleLogout() {
-        
-        do {
-            try FIRAuth.auth()?.signOut()
-        } catch let logoutError {
-            print(logoutError)
-        }
-        
-        let loginController = LoginController()
-        present(loginController, animated: true, completion: nil)
     }
     
 }

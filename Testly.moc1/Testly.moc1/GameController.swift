@@ -2,100 +2,176 @@
 //  GameController.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 3/6/17.
+//  Created by Miguel Chavez on 4/10/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
 import UIKit
-import LBTAComponents
-import Toucan
+import Firebase
 
-class GameController: UIViewController, UIViewControllerTransitioningDelegate {
+class GameController: UIViewController {
+    
+    let logoContainerView: UIView = {
+        let view = UIView()
+        
+        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "math"))
+        view.addSubview(logoImageView)
+        logoImageView.anchorCenterSuperview()
+        view.backgroundColor = UIColor(r: 0, g: 120, b: 176)
+        return view
+    }()
+    
+    let timeLeftLabel: UILabel = {
+        let label = UILabel()
+        
+        let attributedText = NSMutableAttributedString(string: "Time:\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+        
+        attributedText.append(NSAttributedString(string: "20", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
+        
+        label.attributedText = attributedText
+        label.numberOfLines=0
+        label.textAlignment = .center
+        label.backgroundColor = UIColor(r: 0, g: 120, b: 176)
+        return label
+    }()
+    
+    let questionNumberLabel: UILabel = {
+        let label = UILabel()
+        
+        let attributedText = NSMutableAttributedString(string: "Question:\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+        
+        attributedText.append(NSAttributedString(string: "1/10", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
+        
+        label.attributedText = attributedText
+        label.numberOfLines=0
+        label.textAlignment = .center
+        label.backgroundColor = UIColor(r: 0, g: 120, b: 176)
+        return label
+    }()
     
     
-    let startButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(r: 51, g: 105, b: 255)
-        button.setTitle("Play", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 40
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(Play), for: .touchUpInside)
+    let questionTextField: UITextField = {
+        let tf = UITextField()
+        tf.backgroundColor = UIColor(r: 149, g: 204, b: 244)
+        tf.layer.cornerRadius = 5
+        tf.text = "what is the question?"
+        tf.textAlignment = .center
+
+        return tf
+    }()
+    
+    
+    let answerOneButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Answer 1", for: .normal)
+        button.backgroundColor = UIColor(r: 149, g: 204, b: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        
         return button
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = SharedModuleData.shared.name
-        label.font = UIFont.boldSystemFont(ofSize: 38)
-        label.textAlignment = .center
-//                label.backgroundColor = .blue
-        return label
-    }()
-    
-    
-    let statusLabel: UILabel = {
-        let label = UILabel()
-        label.text = SharedModuleData.shared.status
-        label.font = UIFont.systemFont(ofSize: 26)
-        label.textAlignment = .center
-//                label.backgroundColor = .red
-        return label
-    }()
-    
-    
-    let moduleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = SharedModuleData.shared.moduleImage
-        var color = 0
-        imageView.layer.cornerRadius = 5
-        imageView.layer.masksToBounds = true
-        imageView.clipsToBounds = true
+    let answerTwoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Answer 2", for: .normal)
+        button.backgroundColor = UIColor(r: 149, g: 204, b: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
         
-//        imageView.backgroundColor = .yellow
-        return imageView
+        return button
     }()
+    
+    let answerThreeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Answer 3", for: .normal)
+        button.backgroundColor = UIColor(r: 149, g: 204, b: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    let answerFourButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Answer 4", for: .normal)
+        button.backgroundColor = UIColor(r: 149, g: 204, b: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    func handleLogin() {
+        
+    }
+    
+    func handleDontHaveAccount() {
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController?.delegate = self
         
-        self.navigationItem.title = "Game"
+        setupQuestionHeader()
         
-        view.backgroundColor = UIColor(r: 201, g: 224, b: 255)
+        view.addSubview(questionTextField)
+        questionTextField.anchor(questionNumberLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 40, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 180)
         
-        view.addSubview(moduleImageView)
-        view.addSubview(startButton)
-        view.addSubview(nameLabel)
-        view.addSubview(statusLabel)
+        navigationController?.isNavigationBarHidden = true
         
-        //setupStartLabel()
-        nameLabel.anchorCenterXToSuperview()
-        nameLabel.anchor(view.topAnchor, left: nil, bottom: nil, right: nil, topConstant: 70, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 40)
-        
-        statusLabel.anchorCenterXToSuperview()
-        statusLabel.anchor(nameLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 400, heightConstant: 35)
-        
-        moduleImageView.anchorCenterXToSuperview()
-        moduleImageView.anchor(statusLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 70, heightConstant: 70)
-        
-        startButton.anchorCenterXToSuperview()
-        startButton.anchor(moduleImageView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 80, heightConstant: 80)
+        view.backgroundColor = .white
+        setupAnswerButtons()
     }
     
-    @IBAction func Play(sender: UIButton) {
-//        func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: SecondGameController) -> UIViewControllerAnimatedTransitioning? {
-//            switch operation {
-//            case .push:
-//                return CircularTransition(identifier: "Abc", source: fromVC, destination: toVC)
-//                
-//            default:
-//                return nil
-//            }
-//        }
-        let modalStyle = UIModalTransitionStyle.flipHorizontal
-        let secondGameController:SecondGameController = SecondGameController()
-        secondGameController.modalTransitionStyle = modalStyle
-        self.present(secondGameController, animated: true, completion: nil)
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    fileprivate func setupAnswerButtons() {
+        
+        let stackView  = UIStackView(arrangedSubviews: [answerOneButton, answerTwoButton, answerThreeButton, answerFourButton])
+        
+        view.addSubview(stackView)
+        
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        
+        stackView.anchor(questionTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 40, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 200)
+        
+    }
+    
+    fileprivate func setupQuestionHeader() {
+        let stackview = UIStackView(arrangedSubviews: [questionNumberLabel,logoContainerView,timeLeftLabel])
+        stackview.axis = .horizontal
+        stackview.distribution = .fillEqually
+        
+        view.addSubview(stackview)
+        stackview.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 180)
+    }
+    
+    func checkAnswer() {
+//        let modalStyle = UIModalTransitionStyle.crossDissolve
+//        let correctAnswerController:CorrectAnswerController = CorrectAnswerController()
+//        correctAnswerController.modalTransitionStyle = modalStyle
+//        self.present(correctAnswerController, animated: true, completion: nil)
+        
+        let modalStyle = UIModalTransitionStyle.crossDissolve
+        let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
+        customTabBarConroller.modalTransitionStyle = modalStyle
+        self.present(customTabBarConroller, animated: true, completion: nil)
+       
+        
     }
 }

@@ -27,15 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = CustomTabBarConroller()
         
-        //UINavigationBar.appearance().barTintColor = UIColor(r: 255, g: 169, b: 2)
-        //let menuBar = MenuBar()
-        //UINavigationBar.appearance().addSubview(menuBar)
-        
-        // application.statusBarStyle = .lightContent
-        
-        //let statusBarBackgroundView = UIView()
-        //statusBarBackgroundView.backgroundColor = UIColor(r: 194, g: 31, b: 31)
-        
         
         
         // Override point for customization after application launch.

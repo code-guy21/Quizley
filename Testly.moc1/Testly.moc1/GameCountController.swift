@@ -10,20 +10,15 @@ import UIKit
 import LBTAComponents
 import Toucan
 
-class SecondGameController: UIViewController {
+class GameCountController: UIViewController {
     
     let countLabel: UIButton = {
         
         let temp = UIButton()
-//        let label = UILabel()
-//        label.text = "3"
-//        label.font = UIFont.boldSystemFont(ofSize: 108)
-//        label.textAlignment = .center
-        //        //                label.backgroundColor = .blue
         temp.setTitle("3", for: .normal)
         temp.titleLabel?.font = UIFont(name: "arial", size: 108)
         temp.setTitleColor(.black, for: .normal)
-        temp.addTarget(self, action: #selector(Reset), for: .touchUpInside)
+        temp.addTarget(self, action: #selector(Start), for: .touchUpInside)
         return temp
     }()
     
@@ -42,9 +37,11 @@ class SecondGameController: UIViewController {
         countLabel.anchor(view.topAnchor, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 40)
     }
     
-    @IBAction func Reset(sender: UIButton) {
+    @IBAction func Start(sender: UIButton) {
         
-        let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
-        self.present(customTabBarConroller, animated: true, completion: nil)
+        let modalStyle = UIModalTransitionStyle.flipHorizontal
+        let gameController:GameController = GameController()
+        gameController.modalTransitionStyle = modalStyle
+        self.present(gameController, animated: true, completion: nil)
     }
 }

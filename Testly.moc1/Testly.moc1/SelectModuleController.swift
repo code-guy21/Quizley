@@ -23,8 +23,7 @@ class SelectModuleController: DatasourceController {
         //handleLogout()
         // checkIfUserIsLoggedIn()
         super.viewDidLoad()
-        //        collectionView?.backgroundColor = .white
-        collectionView?.backgroundColor = UIColor(r: 51, g: 105, b: 255)
+        collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
         
         
@@ -33,6 +32,15 @@ class SelectModuleController: DatasourceController {
         //this was how we use to set
         self.datasource = list
         
+    }
+    fileprivate func setupNavigationBarItemList() {
+        let navBar = navigationController?.navigationBar
+        navBar?.barTintColor = UIColor(r: 0, g: 180, b: 248)
+        navBar?.isTranslucent = false
+        
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -55,7 +63,7 @@ class SelectModuleController: DatasourceController {
         if section == 1 {
             return .zero
         }
-        return CGSize(width: view.frame.width, height: 14)
+        return CGSize(width: view.frame.width, height: 5)
     }
     
     
@@ -100,8 +108,8 @@ class SelectModuleController: DatasourceController {
             print(logoutError)
         }
         
-        let loginController = LoginController()
-        present(loginController, animated: true, completion: nil)
+        let loginRegisterController = LoginRegisterController()
+        present(loginRegisterController, animated: true, completion: nil)
     }
     
 }

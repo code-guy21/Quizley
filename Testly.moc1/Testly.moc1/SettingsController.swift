@@ -24,7 +24,7 @@ class SettingsController: DatasourceController {
         //checkIfUserIsLoggedIn()
         super.viewDidLoad()
         //        collectionView?.backgroundColor = .white
-        collectionView?.backgroundColor = UIColor(r: 51, g: 105, b: 255)
+        collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
         
         
@@ -32,7 +32,45 @@ class SettingsController: DatasourceController {
         setupNavigationBarItemList()
         //this was how we use to set
         self.datasource = list
-        //print(list.modules[0].name)
+        
+        setupLogOutButton()
+
+    }
+    
+    fileprivate func setupLogOutButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
+    }
+    
+    func handleLogOut() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+            
+            do {
+                try FIRAuth.auth()?.signOut()
+                
+                //change UiViews
+                let loginRegisterController = LoginRegisterController()
+                let navController = UINavigationController(rootViewController: loginRegisterController)
+                self.present(navController, animated: true, completion: nil)
+                
+            } catch let signOutErr {
+                print("Failed to signout", signOutErr)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true,completion: nil)
+    }
+    
+    fileprivate func setupNavigationBarItemList() {
+        let navBar = navigationController?.navigationBar
+        navBar?.barTintColor = UIColor(r: 0, g: 180, b: 248)
+        navBar?.isTranslucent = false
+        
+        navigationItem.title = "Settings"
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -75,8 +113,8 @@ class SettingsController: DatasourceController {
             print(logoutError)
         }
         
-        let loginController = LoginController()
-        present(loginController, animated: true, completion: nil)
+        let loginRegisterController = LoginRegisterController()
+        present(loginRegisterController, animated: true, completion: nil)
     }
     
 }

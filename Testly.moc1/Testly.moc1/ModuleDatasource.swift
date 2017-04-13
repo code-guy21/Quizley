@@ -30,9 +30,9 @@ class ModuleDatasource: Datasource {
     //    }
     
     //what type of header
-    //    override func headerClasses() -> [DatasourceCell.Type]? {
-    //        return [ModuleHeader.self]
-     //   }
+        override func headerClasses() -> [DatasourceCell.Type]? {
+            return [ListHeader.self]
+        }
     
     //what type of cells
     override func cellClasses() -> [DatasourceCell.Type] {

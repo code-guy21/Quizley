@@ -26,14 +26,13 @@ class SelectBasicModuleHeader: DatasourceCell{
         backgroundColor = .white
         
         separatorLineView.isHidden = false
-        separatorLineView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+        //separatorLineView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
         textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
 
 class SelectBasicModuleFooter: DatasourceCell{
-    
     //here we make a lable for the header
 //    let textLabel: UILabel = {
 //        let label = UILabel()
@@ -43,7 +42,9 @@ class SelectBasicModuleFooter: DatasourceCell{
 //        return label
 //    }()
 //    
-//    override func setupViews() {
+    override func setupViews() {
+        separatorLineView.isHidden = false
+    }
 //        super.setupViews()
 //        
 //        let whiteBackgrounView = UIView()

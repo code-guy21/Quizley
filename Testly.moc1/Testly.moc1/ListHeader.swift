@@ -1,19 +1,19 @@
 //
-//  a.swift
+//  ListControllerHeader.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 3/6/17.
+//  Created by Miguel Chavez on 4/10/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
 import LBTAComponents
 
-class SelectCompModuleHeader: DatasourceCell{
+class ListHeader: DatasourceCell{
     
     //here we make a lable for the header
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = "Custom Classes"
+        label.text = "Your Classes"
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor(r: 130,g: 130,b: 130)
         return label
