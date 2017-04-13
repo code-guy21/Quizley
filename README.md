@@ -9,7 +9,7 @@ Zach Bischoff
 ####################
 ***GUI:***
 
-![Screenshot](img.png)
+![Screenshot](Quizly/StudentLogin.png)
 
 Brandon Marcoux
 ####################
