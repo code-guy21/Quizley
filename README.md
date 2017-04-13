@@ -9,7 +9,7 @@ Zach Bischoff
 ####################
 ***GUI:***
 
-![alt tag](http://url/to/img.png)
+![alt tag](https://github.com/code-guy21/Quizley/tree/miguel/img.png)
 
 Brandon Marcoux
 ####################
