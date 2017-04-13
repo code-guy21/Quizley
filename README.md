@@ -9,6 +9,8 @@ Zach Bischoff
 ####################
 ***GUI:***
 
+![alt tag](http://url/to/img.png)
+
 Brandon Marcoux
 ####################
 ***Project Lead:***
