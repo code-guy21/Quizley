@@ -50,9 +50,9 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         }
     }
     
-    let nameTextField: UITextField = {
+    let usernameTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Name"
+        tf.placeholder = "Username"
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
@@ -104,16 +104,47 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
                 print("Failed to sign in with email", err)
                 return
             }
-            
-            print("it worked" , user?.uid ?? "")
-            
             guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? CustomTabBarConroller else {return}
-            mainTabBarController.setupViewControllers()
+            mainTabBarController.setupStudentViewControllers()
             self.dismiss(animated: true, completion: nil)
+//            self.fetchUser()
+//            
+//            if(self.access == "student") {
+//            print("it worked" , user?.uid ?? "")
+//            
+//            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? CustomTabBarConroller else {return}
+//            mainTabBarController.setupStudentViewControllers()
+//            self.dismiss(animated: true, completion: nil)
+//            }
+//            else {
+//                self.handleLogout()
+//                return
+//            }
             
         })
     }
     
+    var user: User?
+    var access: String?
+
+    fileprivate func fetchUser() {
+    
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else {return}
+        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
+            self.user = user
+            self.access = user.access
+        }
+    }
+    
+    func handleLogout() {
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+    }
+
     let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
@@ -121,7 +152,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         
         button.isEnabled = false
         
@@ -129,10 +160,9 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     }()
     
     func handleRegister() {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
-            print("Form is not valid")
-            return
-        }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
             
@@ -141,22 +171,19 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
                 return
             }
             
-            guard let uid = user?.uid else {
-                return
-            }
+            guard let uid = user?.uid else { return }
             
-            //successfully authenticated user
-            let ref = FIRDatabase.database().reference(fromURL: "https://mango-hack.firebaseio.com/")
-            let usersReference = ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            let dictionaryValues = ["username": username,"email": email,"access":"student"]
+            let values = [uid: dictionaryValues]
+            FIRDatabase.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err,
+                ref) in
                 
-                if err != nil {
-                    print(err)
+                if let err = err {
+                    print("Failed", err)
                     return
                 }
                 
-                self.dismiss(animated: true, completion: nil)
+                print("Succ")
             })
             
         })
@@ -177,7 +204,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         
         let isRegisterVaild = emailTextField.text?.characters.count ?? 0 > 0 &&
             passwordTextField.text?.characters.count ?? 0 > 0 &&
-            nameTextField.text?.characters.count ?? 0 > 0
+            usernameTextField.text?.characters.count ?? 0 > 0
         
         if isRegisterVaild {
             registerButton.backgroundColor = UIColor(r: 17, g: 154, b: 237)
@@ -193,7 +220,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         let button = UIButton(type: .system)
         
         let attributedTitle = NSMutableAttributedString(string: "Are you a teacher?  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.lightGray])
-        attributedTitle.append(NSAttributedString(string: "Become a Admin.", attributes: [NSForegroundColorAttributeName: UIColor(r: 17, g: 154, b: 237), NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)]))
+        attributedTitle.append(NSAttributedString(string: "Login as a Teacher.", attributes: [NSForegroundColorAttributeName: UIColor(r: 17, g: 154, b: 237), NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(becomeAnAdmin), for: .touchUpInside)
@@ -232,7 +259,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     
     fileprivate func setupLoginFields() {
         
-        nameTextField.removeFromSuperview()
+        usernameTextField.removeFromSuperview()
         registerButton.removeFromSuperview()
         let stackView  = UIStackView(arrangedSubviews: [emailTextField,passwordTextField, loginButton])
         
@@ -250,7 +277,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         
         
         loginButton.removeFromSuperview()
-        let stackView  = UIStackView(arrangedSubviews: [nameTextField, emailTextField,passwordTextField, registerButton])
+        let stackView  = UIStackView(arrangedSubviews: [usernameTextField, emailTextField,passwordTextField, registerButton])
         
         view.addSubview(stackView)
         

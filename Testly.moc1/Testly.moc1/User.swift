@@ -2,17 +2,21 @@
 //  User.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 3/9/17.
+//  Created by Miguel Chavez on 4/13/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct User {
-    let name:String
+    let uid: String
     let username: String
-    let birthday:String
-    let MobileNumber: String
-    let Email:String
-    let Password: String
+    let access: String
+    
+    init(uid:String, dictionary: [String: Any]) {
+        self.uid = uid
+        self.username = dictionary["username"] as? String ?? ""
+        self.access = dictionary["access"] as? String ?? ""
+        
+    }
 }

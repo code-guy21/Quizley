@@ -28,11 +28,31 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
             return
         }
         
-        setupViewControllers()
+        fetchUser()
+            
+    }
+    var user: User?
+    var access: String?
+    
+    fileprivate func fetchUser() {
+        
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else {return}
+        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
+            self.user = user
+            self.access = user.access
+        }
+        
+        if(self.access == "student") {
+            self.setupStudentViewControllers()
+        }
+        else //if(self.access == "teacher"){
+        {
+            self.setupTeacherViewControllers()
+        }
     }
     
 
-     func setupViewControllers() {
+     func setupStudentViewControllers() {
         let playController = UINavigationController(rootViewController: ListController())
         playController.tabBarItem.title = "play"
         playController.tabBarItem.image = UIImage(named: "play")
@@ -48,5 +68,20 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
         tabBar.tintColor = .red
         
         viewControllers = [playController,addController,settingsController]
+    }
+    
+    func setupTeacherViewControllers() {
+        
+        let addModuleController = UINavigationController(rootViewController: AddModuleController())
+        addModuleController.tabBarItem.title = "add"
+        addModuleController.tabBarItem.image = UIImage(named: "add")
+        
+        let settingsController = UINavigationController(rootViewController: SettingsController())
+        settingsController.tabBarItem.title = "settings"
+        settingsController.tabBarItem.image = UIImage(named: "settings")
+        
+        tabBar.tintColor = .red
+        
+        viewControllers = [addModuleController,settingsController]
     }
 }

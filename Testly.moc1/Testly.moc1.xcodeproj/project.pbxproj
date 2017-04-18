@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		26A6B2AE6B8062D4F858BDD7 /* Pods_Testly_moc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */; };
+		CF0231E21EA4EE17002D7B82 /* AddModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0231E11EA4EE17002D7B82 /* AddModuleController.swift */; };
 		CF03FB431E718F0C00470CB5 /* GameCountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB421E718F0C00470CB5 /* GameCountController.swift */; };
 		CF03FB471E71994800470CB5 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB461E71994800470CB5 /* CircularTransition.swift */; };
 		CF03FB4D1E71DD3900470CB5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */; };
-		CF03FB4F1E71DD7F00470CB5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4E1E71DD7F00470CB5 /* User.swift */; };
+		CF03FB4F1E71DD7F00470CB5 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4E1E71DD7F00470CB5 /* User2.swift */; };
 		CF03FB511E71DFF800470CB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB501E71DFF800470CB5 /* Settings.swift */; };
 		CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */; };
 		CF03FB551E71E6FB00470CB5 /* SelectedSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */; };
+		CF0AEEDC1EA05328004CEC52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF0AEEDB1EA05328004CEC52 /* GoogleService-Info.plist */; };
+		CF0AEEE31EA0610F004CEC52 /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AEEE21EA0610F004CEC52 /* FirebaseUtils.swift */; };
+		CF0AEEE51EA061E8004CEC52 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AEEE41EA061E8004CEC52 /* User.swift */; };
 		CF3650111E9BDF8C0023F9CD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650101E9BDF8C0023F9CD /* GameController.swift */; };
 		CF3650131E9C04BA0023F9CD /* CorrectAnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650121E9C04BA0023F9CD /* CorrectAnswerController.swift */; };
 		CF3650151E9C3CFC0023F9CD /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650141E9C3CFC0023F9CD /* ListHeader.swift */; };
@@ -24,7 +28,6 @@
 		CF5877A31E6DBC230082FB0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A11E6DBC230082FB0E /* Main.storyboard */; };
 		CF5877A51E6DBC230082FB0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A41E6DBC230082FB0E /* Assets.xcassets */; };
 		CF5877A81E6DBC230082FB0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A61E6DBC230082FB0E /* LaunchScreen.storyboard */; };
-		CF5877B51E6DBE9B0082FB0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5877B31E6DBE9B0082FB0E /* GoogleService-Info.plist */; };
 		CF5877B61E6DBE9B0082FB0E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5877B41E6DBE9B0082FB0E /* Info.plist */; };
 		CF5877B81E6DBED00082FB0E /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877B71E6DBED00082FB0E /* ListController.swift */; };
 		CF5877C21E6DC17C0082FB0E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877C11E6DC17C0082FB0E /* CustomTabBarController.swift */; };
@@ -45,13 +48,17 @@
 /* Begin PBXFileReference section */
 		31126084938F895605C4EC57 /* Pods-Testly.moc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.debug.xcconfig"; sourceTree = "<group>"; };
 		781E4225C4DEA5DEBC0F52E7 /* Pods-Testly.moc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.release.xcconfig"; sourceTree = "<group>"; };
+		CF0231E11EA4EE17002D7B82 /* AddModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleController.swift; sourceTree = "<group>"; };
 		CF03FB421E718F0C00470CB5 /* GameCountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCountController.swift; sourceTree = "<group>"; };
 		CF03FB461E71994800470CB5 /* CircularTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		CF03FB4E1E71DD7F00470CB5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF03FB4E1E71DD7F00470CB5 /* User2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		CF03FB501E71DFF800470CB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDatasource.swift; sourceTree = "<group>"; };
 		CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSettingController.swift; sourceTree = "<group>"; };
+		CF0AEEDB1EA05328004CEC52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF0AEEE21EA0610F004CEC52 /* FirebaseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
+		CF0AEEE41EA061E8004CEC52 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CF3650101E9BDF8C0023F9CD /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		CF3650121E9C04BA0023F9CD /* CorrectAnswerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectAnswerController.swift; sourceTree = "<group>"; };
 		CF3650141E9C3CFC0023F9CD /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeader.swift; sourceTree = "<group>"; };
@@ -63,7 +70,6 @@
 		CF5877A41E6DBC230082FB0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5877A71E6DBC230082FB0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF5877A91E6DBC230082FB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF5877B31E6DBE9B0082FB0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF5877B41E6DBE9B0082FB0E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		CF5877B71E6DBED00082FB0E /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		CF5877C11E6DC17C0082FB0E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CF0AEEDD1EA05D27004CEC52 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				CF3650161E9C3E360023F9CD /* LoginRegisterController.swift */,
+				CF5877B71E6DBED00082FB0E /* ListController.swift */,
+				CF5877D31E6DD5E50082FB0E /* SelectModuleController.swift */,
+				CF5877CB1E6DD0A70082FB0E /* SettingsController.swift */,
+				CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */,
+				CF5877C91E6DCDF30082FB0E /* LoadGameController.swift */,
+				CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */,
+				CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */,
+			);
+			name = Student;
+			sourceTree = "<group>";
+		};
+		CF0AEEDE1EA05D2E004CEC52 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				CF3650181E9C3E480023F9CD /* AdminLoginRegisterController.swift */,
+				CF0231E11EA4EE17002D7B82 /* AddModuleController.swift */,
+			);
+			name = Teacher;
+			sourceTree = "<group>";
+		};
+		CF0AEEE11EA060F8004CEC52 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF0AEEE21EA0610F004CEC52 /* FirebaseUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		CF36500F1E9BDE540023F9CD /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +180,7 @@
 		CF58779C1E6DBC230082FB0E /* Testly.moc1 */ = {
 			isa = PBXGroup;
 			children = (
+				CF0AEEE11EA060F8004CEC52 /* Utils */,
 				CF36500F1E9BDE540023F9CD /* Game */,
 				CF5877B21E6DBE4B0082FB0E /* Service */,
 				CF5877B11E6DBE390082FB0E /* View */,
@@ -161,12 +200,13 @@
 			isa = PBXGroup;
 			children = (
 				CF5877CD1E6DD17A0082FB0E /* Module.swift */,
-				CF03FB4E1E71DD7F00470CB5 /* User.swift */,
+				CF03FB4E1E71DD7F00470CB5 /* User2.swift */,
 				CF03FB501E71DFF800470CB5 /* Settings.swift */,
 				CF5877D11E6DD37A0082FB0E /* ModuleDatasource.swift */,
 				CF5877D71E6DD6420082FB0E /* SelectModuleDatasource.swift */,
 				CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */,
 				CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */,
+				CF0AEEE41EA061E8004CEC52 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -174,15 +214,8 @@
 		CF5877B01E6DBE280082FB0E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CF3650181E9C3E480023F9CD /* AdminLoginRegisterController.swift */,
-				CF3650161E9C3E360023F9CD /* LoginRegisterController.swift */,
-				CF5877B71E6DBED00082FB0E /* ListController.swift */,
-				CF5877D31E6DD5E50082FB0E /* SelectModuleController.swift */,
-				CF5877CB1E6DD0A70082FB0E /* SettingsController.swift */,
-				CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */,
-				CF5877C91E6DCDF30082FB0E /* LoadGameController.swift */,
-				CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */,
-				CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */,
+				CF0AEEDE1EA05D2E004CEC52 /* Teacher */,
+				CF0AEEDD1EA05D27004CEC52 /* Student */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -203,7 +236,7 @@
 		CF5877B21E6DBE4B0082FB0E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CF5877B31E6DBE9B0082FB0E /* GoogleService-Info.plist */,
+				CF0AEEDB1EA05328004CEC52 /* GoogleService-Info.plist */,
 				CF5877B41E6DBE9B0082FB0E /* Info.plist */,
 			);
 			name = Service;
@@ -273,7 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF5877A81E6DBC230082FB0E /* LaunchScreen.storyboard in Resources */,
-				CF5877B51E6DBE9B0082FB0E /* GoogleService-Info.plist in Resources */,
+				CF0AEEDC1EA05328004CEC52 /* GoogleService-Info.plist in Resources */,
 				CF5877A51E6DBC230082FB0E /* Assets.xcassets in Resources */,
 				CF5877B61E6DBE9B0082FB0E /* Info.plist in Resources */,
 				CF5877A31E6DBC230082FB0E /* Main.storyboard in Resources */,
@@ -340,13 +373,16 @@
 				CF5877D41E6DD5E50082FB0E /* SelectModuleController.swift in Sources */,
 				CF5877CC1E6DD0A70082FB0E /* SettingsController.swift in Sources */,
 				CF5877D21E6DD37A0082FB0E /* ModuleDatasource.swift in Sources */,
+				CF0231E21EA4EE17002D7B82 /* AddModuleController.swift in Sources */,
 				CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */,
 				CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */,
 				CF5877CA1E6DCDF30082FB0E /* LoadGameController.swift in Sources */,
+				CF0AEEE51EA061E8004CEC52 /* User.swift in Sources */,
 				CF5877D01E6DD1C90082FB0E /* ModuleCell.swift in Sources */,
 				CF3650171E9C3E360023F9CD /* LoginRegisterController.swift in Sources */,
-				CF03FB4F1E71DD7F00470CB5 /* User.swift in Sources */,
+				CF03FB4F1E71DD7F00470CB5 /* User2.swift in Sources */,
 				CF3650191E9C3E480023F9CD /* AdminLoginRegisterController.swift in Sources */,
+				CF0AEEE31EA0610F004CEC52 /* FirebaseUtils.swift in Sources */,
 				CF03FB431E718F0C00470CB5 /* GameCountController.swift in Sources */,
 				CF5877D81E6DD6420082FB0E /* SelectModuleDatasource.swift in Sources */,
 				CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */,
@@ -486,7 +522,7 @@
 				DEVELOPMENT_TEAM = 2BSD3K249X;
 				INFOPLIST_FILE = Testly.moc1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "House.Testly-moc1";
+				PRODUCT_BUNDLE_IDENTIFIER = House.Quizley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -500,7 +536,7 @@
 				DEVELOPMENT_TEAM = 2BSD3K249X;
 				INFOPLIST_FILE = Testly.moc1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "House.Testly-moc1";
+				PRODUCT_BUNDLE_IDENTIFIER = House.Quizley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
