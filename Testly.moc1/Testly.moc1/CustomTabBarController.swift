@@ -40,26 +40,29 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
         FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
             self.access = user.access
-        }
-        
-        if(self.access == "student") {
-            self.setupStudentViewControllers()
-        }
-        else //if(self.access == "teacher"){
-        {
-            self.setupTeacherViewControllers()
+            if(self.access == "student") {
+                self.setupStudentViewControllers()
+            }
+            else if(self.access == "teacher"){
+                self.setupTeacherViewControllers()
+            }
         }
     }
     
 
      func setupStudentViewControllers() {
-        let playController = UINavigationController(rootViewController: ListController())
-        playController.tabBarItem.title = "play"
-        playController.tabBarItem.image = UIImage(named: "play")
+        let layout = UICollectionViewFlowLayout()
+        let myModuleListController = MyModuleListController(collectionViewLayout: layout)
+        let navMyModuleListController = UINavigationController(rootViewController: myModuleListController)
         
-        let addController = UINavigationController(rootViewController: SelectModuleController())
-        addController.tabBarItem.title = "add"
-        addController.tabBarItem.image = UIImage(named: "add")
+        navMyModuleListController.tabBarItem.title = "play"
+        navMyModuleListController.tabBarItem.image = UIImage(named: "play")
+        
+        let addMController = AddMController(collectionViewLayout: layout)
+        let navAddMController = UINavigationController(rootViewController: addMController)
+        
+        navAddMController.tabBarItem.title = "add"
+        navAddMController.tabBarItem.image = UIImage(named: "add")
         
         let settingsController = UINavigationController(rootViewController: SettingsController())
         settingsController.tabBarItem.title = "settings"
@@ -67,14 +70,14 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
         
         tabBar.tintColor = .red
         
-        viewControllers = [playController,addController,settingsController]
+        viewControllers = [navMyModuleListController,navAddMController,settingsController]
     }
     
     func setupTeacherViewControllers() {
         
-        let addModuleController = UINavigationController(rootViewController: AddModuleController())
-        addModuleController.tabBarItem.title = "add"
-        addModuleController.tabBarItem.image = UIImage(named: "add")
+        let addModuleController2 = UINavigationController(rootViewController: AddModuleController2())
+        addModuleController2.tabBarItem.title = "add"
+        addModuleController2.tabBarItem.image = UIImage(named: "add")
         
         let settingsController = UINavigationController(rootViewController: SettingsController())
         settingsController.tabBarItem.title = "settings"
@@ -82,6 +85,6 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
         
         tabBar.tintColor = .red
         
-        viewControllers = [addModuleController,settingsController]
+        viewControllers = [addModuleController2,settingsController]
     }
 }

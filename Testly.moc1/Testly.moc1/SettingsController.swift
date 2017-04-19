@@ -38,6 +38,7 @@ class SettingsController: DatasourceController {
     }
     
     fileprivate func setupLogOutButton() {
+        navigationController?.popViewController(animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
     }
     

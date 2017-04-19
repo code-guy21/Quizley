@@ -24,13 +24,13 @@ class SelectModuleController: DatasourceController {
         // checkIfUserIsLoggedIn()
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
-        
-        
+        //list.fetchModules()
         
         
         setupNavigationBarItemList()
         //this was how we use to set
         self.datasource = list
+        self.collectionView?.reloadData()
         
     }
     fileprivate func setupNavigationBarItemList() {
@@ -76,11 +76,11 @@ class SelectModuleController: DatasourceController {
             navigationController?.pushViewController(controller, animated: true)
         }
         else {
-            SharedModuleData.shared.name = self.list.addBasicModules[indexPath.row].name
-            SharedModuleData.shared.status = self.list.addBasicModules[indexPath.row].status
-            SharedModuleData.shared.moduleImage = self.list.addBasicModules[indexPath.row].moduleImage
-            let controller = AddBasicModuleController(myStg: "hi")
-            navigationController?.pushViewController(controller, animated: true)
+//            SharedModuleData.shared.name = self.list.addBasicModules[indexPath.row].name
+//            SharedModuleData.shared.status = self.list.addBasicModules[indexPath.row].status
+//            SharedModuleData.shared.moduleImage = self.list.addBasicModules[indexPath.row].moduleImage
+//            let controller = AddBasicModuleController(myStg: "hi")
+//            navigationController?.pushViewController(controller, animated: true)
         }
     }
     

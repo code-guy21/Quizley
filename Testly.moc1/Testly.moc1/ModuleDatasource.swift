@@ -15,11 +15,11 @@ import LBTAComponents
 //makes the HomeDatasource (Jframe)
 class ModuleDatasource: Datasource {
     
-    let modules: [Module] = {
+    let modules: [Module2] = {
         
-        let moduleMath = Module(name: "Math",status: "Lets learn Math",moduleImage: #imageLiteral(resourceName: "math"))
+        let moduleMath = Module2(name: "Math",status: "Lets learn Math",moduleImage: #imageLiteral(resourceName: "math"))
         
-        let moduleHistory = Module(name: "History",status: "Lets learn History",moduleImage: #imageLiteral(resourceName: "history"))
+        let moduleHistory = Module2(name: "History",status: "Lets learn History",moduleImage: #imageLiteral(resourceName: "history"))
         
         return [moduleMath,moduleHistory]
     }()
@@ -36,7 +36,7 @@ class ModuleDatasource: Datasource {
     
     //what type of cells
     override func cellClasses() -> [DatasourceCell.Type] {
-        return [ModuleCell.self]
+        return [Module2Cell.self]
     }
     
     //number of cells

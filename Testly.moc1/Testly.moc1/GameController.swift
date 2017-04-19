@@ -170,8 +170,8 @@ class GameController: UIViewController {
         let modalStyle = UIModalTransitionStyle.crossDissolve
         let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
         customTabBarConroller.modalTransitionStyle = modalStyle
+        customTabBarConroller.setupStudentViewControllers()
         self.present(customTabBarConroller, animated: true, completion: nil)
-       
         
     }
 }

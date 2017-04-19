@@ -9,7 +9,15 @@
 import UIKit
 
 struct Module {
-    let name:String
-    let status: String
+    let mId: String
+    let className:String
+    let classCaption: String
     let moduleImage: UIImage
+    
+    init(mId:String, dictionary: [String:Any]) {
+        self.mId = mId
+        self.className = dictionary["ClassName"] as? String ?? ""
+        self.classCaption = dictionary["ClassCaption"] as? String ?? ""
+        self.moduleImage = #imageLiteral(resourceName: "school")
+    }
 }

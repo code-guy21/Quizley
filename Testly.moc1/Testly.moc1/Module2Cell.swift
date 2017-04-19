@@ -2,20 +2,20 @@
 //  ModuleCell.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 4/18/17.
+//  Created by Miguel Chavez on 3/6/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
 import LBTAComponents
-class ModuleCell: DatasourceCell {
+class Module2Cell: DatasourceCell {
     
     //    var color = 0;
     //this lables with the string array of HomeDatasource
     override var datasourceItem: Any?{
         didSet{
-            guard let module = datasourceItem as? Module else { return }
-            nameLabel.text = module.className + ":"
-            statusLabel.text = module.classCaption
+            guard let module = datasourceItem as? Module2 else { return }
+            nameLabel.text = module.name + ":"
+            statusLabel.text = module.status
             moduleImageView.image = module.moduleImage
         }
     }

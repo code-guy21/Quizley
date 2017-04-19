@@ -23,4 +23,20 @@ extension FIRDatabase {
             print("Failed to fetch user for post", err)
         }
     }
+    
+    static func fetchModuleWithMId(mId: String, completion: @escaping (Module) -> ()) {
+        
+            let uid = "fochXH9eJsY3Ek5CY7Agunxy4Bw2"
+        FIRDatabase.database().reference().child("modules").child(uid).child(mId).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let moduleDictionary = snapshot.value as? [String: Any] else { return }
+            
+            let module = Module(mId: mId, dictionary: moduleDictionary)
+            
+            completion(module)
+            
+        }) { (err) in
+            print("Failed to fetch user for post", err)
+        }
+    }
 }
