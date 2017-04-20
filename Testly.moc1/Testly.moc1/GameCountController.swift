@@ -8,18 +8,14 @@
 
 import UIKit
 import LBTAComponents
-import Toucan
+import Lottie
 
 class GameCountController: UIViewController {
     
-    let countLabel: UIButton = {
-        
-        let temp = UIButton()
-        temp.setTitle("3", for: .normal)
-        temp.titleLabel?.font = UIFont(name: "arial", size: 108)
-        temp.setTitleColor(.black, for: .normal)
-        temp.addTarget(self, action: #selector(Start), for: .touchUpInside)
-        return temp
+    let animationCountView: LOTAnimationView = {
+        let AV = LOTAnimationView.animationNamed("countdown")
+        AV?.contentMode = .scaleAspectFill
+        return AV!
     }()
     
     
@@ -29,12 +25,17 @@ class GameCountController: UIViewController {
         
         view.backgroundColor = UIColor(r: 201, g: 224, b: 255)
         
-        view.addSubview(countLabel)
+        view.addSubview(animationCountView)
         
         //setupStartLabel()
-        countLabel.anchorCenterXToSuperview()
-        countLabel.anchorCenterYToSuperview()
-        countLabel.anchor(view.topAnchor, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 40)
+        animationCountView.anchorCenterXToSuperview()
+        animationCountView.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 150, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 240)
+        animationCountView.play { (true) in
+            let modalStyle = UIModalTransitionStyle.flipHorizontal
+            let gameController:GameController = GameController()
+            gameController.modalTransitionStyle = modalStyle
+            self.present(gameController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func Start(sender: UIButton) {

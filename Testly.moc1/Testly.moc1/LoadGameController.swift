@@ -8,10 +8,11 @@
 
 import UIKit
 import LBTAComponents
-import Toucan
+import Firebase
 
-class LoadGameController: UIViewController, UIViewControllerTransitioningDelegate {
+class LoadGameController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var moduleID: String?
     
     let startButton: UIButton = {
         let button = UIButton()
@@ -62,7 +63,7 @@ class LoadGameController: UIViewController, UIViewControllerTransitioningDelegat
         
         self.navigationItem.title = "Game"
         
-        view.backgroundColor = UIColor(r: 201, g: 224, b: 255)
+        collectionView?.backgroundColor = UIColor(r: 201, g: 224, b: 255)
         
         view.addSubview(moduleImageView)
         view.addSubview(startButton)
@@ -81,6 +82,20 @@ class LoadGameController: UIViewController, UIViewControllerTransitioningDelegat
         
         startButton.anchorCenterXToSuperview()
         startButton.anchor(moduleImageView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 80, heightConstant: 80)
+        fetchModules()
+    }
+    
+    var module: Module?
+    fileprivate func fetchModules() {
+        guard let mId = moduleID else { return }
+        FIRDatabase.fetchModuleWithMId(mId: mId) { (module) in
+            self.module = module
+            self.nameLabel.text = self.module?.className
+            self.statusLabel.text = self.module?.classCaption
+            
+            
+            self.collectionView?.reloadData()
+        }
     }
     
     @IBAction func Play(sender: UIButton) {

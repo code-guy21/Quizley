@@ -19,6 +19,9 @@ target 'Testly.moc1' do
   pod 'GoogleMaps'
   pod 'Toucan', '~> 0.6'
 
+  #animations 
+  pod 'lottie-ios'
+
   use_frameworks!
 
 end

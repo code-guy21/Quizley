@@ -69,10 +69,10 @@ class MyModuleListController: UICollectionViewController, UICollectionViewDelega
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let module = modules[indexPath.item]
-        let addModuleController = AddModuleController(collectionViewLayout: UICollectionViewFlowLayout())
-        addModuleController.moduleID = module.mId
+        let loadGameController = LoadGameController(collectionViewLayout: UICollectionViewFlowLayout())
+        loadGameController.moduleID = module.mId
         
-        navigationController?.pushViewController(addModuleController, animated: true)
+        navigationController?.pushViewController(loadGameController, animated: true)
         () }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

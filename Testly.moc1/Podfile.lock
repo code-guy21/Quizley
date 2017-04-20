@@ -44,6 +44,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
   - LBTAComponents (0.1.9)
+  - lottie-ios (1.0.4)
   - Toucan (0.6.0)
 
 DEPENDENCIES:
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleMaps
   - LBTAComponents (~> 0.1.9)
+  - lottie-ios
   - Toucan (~> 0.6)
 
 SPEC CHECKSUMS:
@@ -66,8 +68,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   LBTAComponents: 9a5d314080d1f80208062ccc81a2d25225c5f572
+  lottie-ios: 8b2c5ba38105430a72f03ce54be90d8dac950161
   Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: 8c7baea0124a927fe9fea210803bd87d20f7eacf
+PODFILE CHECKSUM: 0ad661231624e00695fb98a18b33c5349fbcf57c
 
 COCOAPODS: 1.2.0

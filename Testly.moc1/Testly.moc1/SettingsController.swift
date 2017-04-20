@@ -51,6 +51,7 @@ class SettingsController: DatasourceController {
                 try FIRAuth.auth()?.signOut()
                 
                 //change UiViews
+                self.navigationController?.popViewController(animated: true)
                 let loginRegisterController = LoginRegisterController()
                 let navController = UINavigationController(rootViewController: loginRegisterController)
                 self.present(navController, animated: true, completion: nil)
@@ -114,6 +115,7 @@ class SettingsController: DatasourceController {
             print(logoutError)
         }
         
+        navigationController?.popViewController(animated: true)
         let loginRegisterController = LoginRegisterController()
         present(loginRegisterController, animated: true, completion: nil)
     }

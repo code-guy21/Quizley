@@ -23,9 +23,9 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
                 // in loginController so we have to add it functionallty by doing this
                 let navController = UINavigationController(rootViewController: loginRegisterController)
                 self.present(navController, animated: true, completion: nil)
-                
+            
             }
-            return
+            //return
         }
         
         fetchUser()
@@ -74,17 +74,26 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
     }
     
     func setupTeacherViewControllers() {
+        let layout = UICollectionViewFlowLayout()
+        let teacherModuleListController = TeacherModuleListController(collectionViewLayout: layout)
+        let navTeacherModuleListController = UINavigationController(rootViewController: teacherModuleListController)
         
-        let addModuleController2 = UINavigationController(rootViewController: AddModuleController2())
-        addModuleController2.tabBarItem.title = "add"
-        addModuleController2.tabBarItem.image = UIImage(named: "add")
+        navTeacherModuleListController.tabBarItem.title = "play"
+        navTeacherModuleListController.tabBarItem.image = UIImage(named: "play")
         
-        let settingsController = UINavigationController(rootViewController: SettingsController())
+        //let addModuleController2 = UINavigationController(rootViewController: AddModuleController2())
+        let teacherAddModuleController = TeacherAddModuleController(collectionViewLayout: layout)
+        let navteacherAddModuleController = UINavigationController(rootViewController: teacherAddModuleController)
+        navteacherAddModuleController.tabBarItem.title = "add"
+        navteacherAddModuleController.tabBarItem.image = UIImage(named: "add")
+        
+        
+        let settingsController = UINavigationController(rootViewController: TeacherSettingsController())
         settingsController.tabBarItem.title = "settings"
         settingsController.tabBarItem.image = UIImage(named: "settings")
         
         tabBar.tintColor = .red
         
-        viewControllers = [addModuleController2,settingsController]
+        viewControllers = [navTeacherModuleListController,navteacherAddModuleController,settingsController]
     }
 }
