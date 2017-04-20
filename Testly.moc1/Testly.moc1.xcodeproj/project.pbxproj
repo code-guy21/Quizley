@@ -55,6 +55,11 @@
 		CFC553171EA81ADE00760ADC /* TeacherAddModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC553161EA81ADE00760ADC /* TeacherAddModuleController.swift */; };
 		CFC553191EA822CB00760ADC /* TeacherModuleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC553181EA822CB00760ADC /* TeacherModuleListController.swift */; };
 		CFC5531C1EA82A9A00760ADC /* TeacherSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC5531B1EA82A9A00760ADC /* TeacherSettingsController.swift */; };
+		CFC6924F1EA926340047352D /* bouncing_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924A1EA926340047352D /* bouncing_heart.json */; };
+		CFC692501EA926340047352D /* cooking_app.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924B1EA926340047352D /* cooking_app.json */; };
+		CFC692511EA926340047352D /* emoji_tongue.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924C1EA926340047352D /* emoji_tongue.json */; };
+		CFC692521EA926340047352D /* emoji_wink.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924D1EA926340047352D /* emoji_wink.json */; };
+		CFC692531EA926340047352D /* colorline.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924E1EA926340047352D /* colorline.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +114,11 @@
 		CFC553161EA81ADE00760ADC /* TeacherAddModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherAddModuleController.swift; sourceTree = "<group>"; };
 		CFC553181EA822CB00760ADC /* TeacherModuleListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModuleListController.swift; sourceTree = "<group>"; };
 		CFC5531B1EA82A9A00760ADC /* TeacherSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSettingsController.swift; sourceTree = "<group>"; };
+		CFC6924A1EA926340047352D /* bouncing_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bouncing_heart.json; sourceTree = "<group>"; };
+		CFC6924B1EA926340047352D /* cooking_app.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cooking_app.json; sourceTree = "<group>"; };
+		CFC6924C1EA926340047352D /* emoji_tongue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_tongue.json; sourceTree = "<group>"; };
+		CFC6924D1EA926340047352D /* emoji_wink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_wink.json; sourceTree = "<group>"; };
+		CFC6924E1EA926340047352D /* colorline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colorline.json; sourceTree = "<group>"; };
 		D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testly_moc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -305,6 +315,11 @@
 				CFC553071EA809BC00760ADC /* x_pop.json */,
 				CFC553091EA809C300760ADC /* star_pop.json */,
 				CFC5530B1EA809C800760ADC /* countdown.json */,
+				CFC6924A1EA926340047352D /* bouncing_heart.json */,
+				CFC6924B1EA926340047352D /* cooking_app.json */,
+				CFC6924C1EA926340047352D /* emoji_tongue.json */,
+				CFC6924D1EA926340047352D /* emoji_wink.json */,
+				CFC6924E1EA926340047352D /* colorline.json */,
 			);
 			name = "Animation JSONs";
 			sourceTree = "<group>";
@@ -321,6 +336,7 @@
 		CFC5530E1EA8178D00760ADC /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				CFC553101EA817B900760ADC /* AddCell.swift */,
 				CFC553161EA81ADE00760ADC /* TeacherAddModuleController.swift */,
 			);
 			name = Add;
@@ -329,7 +345,6 @@
 		CFC5530F1EA817A200760ADC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFC553101EA817B900760ADC /* AddCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -406,11 +421,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFC553081EA809BC00760ADC /* x_pop.json in Resources */,
+				CFC692531EA926340047352D /* colorline.json in Resources */,
+				CFC692501EA926340047352D /* cooking_app.json in Resources */,
 				CF5877A81E6DBC230082FB0E /* LaunchScreen.storyboard in Resources */,
 				CFC5530C1EA809C800760ADC /* countdown.json in Resources */,
+				CFC6924F1EA926340047352D /* bouncing_heart.json in Resources */,
 				CFC5530A1EA809C300760ADC /* star_pop.json in Resources */,
 				CF1ABE631EA8F59F00CB22B7 /* Assets.xcassets in Resources */,
 				CF0AEEDC1EA05328004CEC52 /* GoogleService-Info.plist in Resources */,
+				CFC692521EA926340047352D /* emoji_wink.json in Resources */,
+				CFC692511EA926340047352D /* emoji_tongue.json in Resources */,
 				CF5877A31E6DBC230082FB0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

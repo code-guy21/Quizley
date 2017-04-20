@@ -46,10 +46,11 @@ class TeacherModuleListController: UICollectionViewController, UICollectionViewD
                 guard let dictionaries = snapshot.value as? [String:Any] else { return }
                 
                 dictionaries.forEach({ (key, value) in
-                    
+                    print(snapshot.value)
                     FIRDatabase.fetchModuleWithMId(mId: key, completion:
                         { (module,dictionary) in
                             self.modules.append(module)
+                            print(self.modules.count)
                             self.collectionView?.reloadData()
                     })
                 })

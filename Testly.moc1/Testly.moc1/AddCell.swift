@@ -49,7 +49,7 @@ class AddCell: UICollectionViewCell {
     
     let questionOneTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 1"
+        tf.text = "How many Great Lakes are there?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -106,7 +106,7 @@ class AddCell: UICollectionViewCell {
     
     let questionTwoTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 2"
+        tf.text = "Which is the world's highest mountain?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -163,7 +163,7 @@ class AddCell: UICollectionViewCell {
     
     let questionThreeTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 3"
+        tf.text = "Which is the longest river in the U.S.?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -220,7 +220,7 @@ class AddCell: UICollectionViewCell {
     
     let questionFourTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 4"
+        tf.text = "Which of these cities is not in Europe?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -277,7 +277,7 @@ class AddCell: UICollectionViewCell {
     
     let questionFiveTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 5"
+        tf.text = "The United Kingdom is comprised of how many countries?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf

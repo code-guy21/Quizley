@@ -34,6 +34,42 @@ class AddMController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     var user: User?
     var modules = [Module]()
+    fileprivate func fetchUserIds() {
+        FIRDatabase.database().reference().child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let userIdsDictionary = snapshot.value as? [String: Any] else { return }
+            
+            print(snapshot.value)
+            userIdsDictionary.forEach({ (key, value) in
+                
+                FIRDatabase.fetchUserWithUID(uid: key, completion: { (user) in
+                    let ref = FIRDatabase.database().reference().child("modules").child(key)
+                    ref.observeSingleEvent(of: .value, with:{ (snapshot) in
+                        
+                        guard let dictionaries = snapshot.value as? [String:Any] else { return }
+                        
+                        dictionaries.forEach({ (key, value) in
+                            
+                            guard let userDictionary = value as? [String:Any] else { return }
+                            
+                            let module = Module(mId: key, dictionary: userDictionary)
+                            self.modules.append(module)
+                        })
+                        
+                        self.collectionView?.reloadData()
+                        
+                    }) { (err) in
+                        print("Failed to fetch ordered Modules:", err)
+                    }
+                })
+            })
+            
+            self.collectionView?.reloadData()
+            
+        }) { (err) in
+            print("Failed to fetch following user ids:", err)
+        }
+    }
     func fetchModules() {
         //our classes
         let uid = "fochXH9eJsY3Ek5CY7Agunxy4Bw2"

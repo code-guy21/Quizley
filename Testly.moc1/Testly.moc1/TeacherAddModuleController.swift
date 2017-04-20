@@ -71,11 +71,7 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
     
     func Yes() {
         print("dfsd")
-        //handleAdd()
-        navigationController?.popViewController(animated: true)
-        let gameCountController = GameCountController()
-        navigationController?.pushViewController(gameCountController, animated: true)
-        //animateOut()
+        //self.collectionView?.reloadData()
     }
     
 //    fileprivate func handleAdd() {
