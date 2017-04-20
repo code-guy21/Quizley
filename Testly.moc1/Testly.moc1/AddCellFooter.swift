@@ -17,7 +17,7 @@ class AddCellFooter: DatasourceCell{
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 40
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(handelSave), for: .touchUpInside)
+        button.addTarget(AddCell(), action: #selector(handelSave), for: .touchUpInside)
         return button
     }()
 
