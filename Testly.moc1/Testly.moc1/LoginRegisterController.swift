@@ -131,7 +131,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
                 return
             }
             guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? CustomTabBarConroller else {return}
-            mainTabBarController.setupStudentViewControllers()
+            mainTabBarController.fetchUser()
             self.dismiss(animated: true, completion: nil)
 //            self.fetchUser()
 //            

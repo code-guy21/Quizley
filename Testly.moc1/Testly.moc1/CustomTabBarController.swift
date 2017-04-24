@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+
+//var access: String?
+var userColors: UserColors?
+
 class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
     
     override func viewDidLoad() {
@@ -32,78 +36,51 @@ class CustomTabBarConroller: UITabBarController,UITabBarControllerDelegate {
             
     }
     var user: User?
-    var access: String?
     
-    fileprivate func fetchUser() {
+    func fetchUser() {
         
+        var access : String?
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {return}
         FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
-            self.access = user.access
-            if(self.access == "student") {
-                self.setupStudentViewControllers()
-            }
-            else if(self.access == "teacher"){
-                self.setupTeacherViewControllers()
-            }
+            access = user.access
+            self.setupViewControllers(access: access!)
+            userColors = UserColors(access: access!)
+            
         }
     }
     
 
-     func setupStudentViewControllers() {
+     func setupViewControllers(access: String) {
         let layout = UICollectionViewFlowLayout()
         let myModuleListController = MyModuleListController(collectionViewLayout: layout)
         let navMyModuleListController = UINavigationController(rootViewController: myModuleListController)
-        
         navMyModuleListController.tabBarItem.title = "play"
         navMyModuleListController.tabBarItem.image = UIImage(named: "play")
         
         let addMController = AddMController(collectionViewLayout: layout)
         let navAddMController = UINavigationController(rootViewController: addMController)
-        
         navAddMController.tabBarItem.title = "add"
         navAddMController.tabBarItem.image = UIImage(named: "add")
-        
-//        let settingsController = UINavigationController(rootViewController: SettingsController())
-//        settingsController.tabBarItem.title = "settings"
-//        settingsController.tabBarItem.image = UIImage(named: "settings")
         
         let settingListController = SettingListController(collectionViewLayout: layout)
         let navSettingListController = UINavigationController(rootViewController: settingListController)
         navSettingListController.tabBarItem.title = "settings"
         navSettingListController.tabBarItem.image = UIImage(named: "settings")
         
-        tabBar.tintColor = .red
-        
-        viewControllers = [navMyModuleListController,navAddMController,navSettingListController]
-    }
-    
-    func setupTeacherViewControllers() {
-        let layout = UICollectionViewFlowLayout()
-        let teacherModuleListController = TeacherModuleListController(collectionViewLayout: layout)
-        let navTeacherModuleListController = UINavigationController(rootViewController: teacherModuleListController)
-        
-        navTeacherModuleListController.tabBarItem.title = "play"
-        navTeacherModuleListController.tabBarItem.image = UIImage(named: "play")
-        
-        //let addModuleController2 = UINavigationController(rootViewController: AddModuleController2())
         let teacherAddModuleController = TeacherAddModuleController(collectionViewLayout: layout)
         let navteacherAddModuleController = UINavigationController(rootViewController: teacherAddModuleController)
         navteacherAddModuleController.tabBarItem.title = "add"
         navteacherAddModuleController.tabBarItem.image = UIImage(named: "add")
         
-        
-//        let settingsController = UINavigationController(rootViewController: TeacherSettingsController())
-//        settingsController.tabBarItem.title = "settings"
-//        settingsController.tabBarItem.image = UIImage(named: "settings")
-        
-        let teacherSettingsController = TeacherSettingController(collectionViewLayout: layout)
-        let navTeacherSettingsController = UINavigationController(rootViewController: teacherSettingsController)
-        navTeacherSettingsController.tabBarItem.title = "settings"
-        navTeacherSettingsController.tabBarItem.image = UIImage(named: "settings")
-        
         tabBar.tintColor = .red
         
-        viewControllers = [navTeacherModuleListController,navteacherAddModuleController,navTeacherSettingsController]
+        if(access == "teacher") {
+            viewControllers = [navMyModuleListController,navteacherAddModuleController,navSettingListController]
+            
+        } else if (access == "student") {
+        viewControllers = [navMyModuleListController,navAddMController,navSettingListController]
+        }
     }
+    
 }

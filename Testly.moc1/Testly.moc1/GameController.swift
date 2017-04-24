@@ -263,10 +263,11 @@ class GameController: UIViewController {
     
     func exit() {
         
+        //self.navigationController?.popViewController(animated: true)
         let modalStyle = UIModalTransitionStyle.crossDissolve
         let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
         customTabBarConroller.modalTransitionStyle = modalStyle
-        customTabBarConroller.setupStudentViewControllers()
+        customTabBarConroller.setupViewControllers(access: (userColors?.access)!)
         self.present(customTabBarConroller, animated: true, completion: nil)
         
     }

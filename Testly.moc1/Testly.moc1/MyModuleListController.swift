@@ -62,7 +62,7 @@ class MyModuleListController: UICollectionViewController, UICollectionViewDelega
     
     fileprivate func setupNavigationBarItemList() {
         let navBar = navigationController?.navigationBar
-        navBar?.barTintColor = UIColor(r: 0, g: 180, b: 248)
+        navBar?.barTintColor = userColors?.navColor
         navBar?.isTranslucent = false
         
     }

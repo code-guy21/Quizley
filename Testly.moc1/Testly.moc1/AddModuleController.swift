@@ -22,8 +22,8 @@ class AddModuleController: UICollectionViewController, UICollectionViewDelegateF
         view.addSubview(moduleImageView)
         view.addSubview(addButton)
         view.addSubview(nameLabel)
-        view.addSubview(statusLabel)
-        view.addSubview(classCodeTextField)
+        view.addSubview(captionLabel)
+        //view.addSubview(classCodeTextField)
         view.addSubview(blurView)
         view.addSubview(otherView)
         
@@ -31,17 +31,17 @@ class AddModuleController: UICollectionViewController, UICollectionViewDelegateF
         nameLabel.anchorCenterXToSuperview()
         nameLabel.anchor(view.topAnchor, left: nil, bottom: nil, right: nil, topConstant: 70, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 40)
         
-        statusLabel.anchorCenterXToSuperview()
-        statusLabel.anchor(nameLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 400, heightConstant: 35)
+        captionLabel.anchorCenterXToSuperview()
+        captionLabel.anchor(nameLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 400, heightConstant: 35)
         
         moduleImageView.anchorCenterXToSuperview()
-        moduleImageView.anchor(statusLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 70, heightConstant: 70)
+        moduleImageView.anchor(captionLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 70, heightConstant: 70)
         
-        classCodeTextField.anchorCenterXToSuperview()
-        classCodeTextField.anchor(moduleImageView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 150, heightConstant: 50)
+//        classCodeTextField.anchorCenterXToSuperview()
+//        classCodeTextField.anchor(moduleImageView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 150, heightConstant: 50)
         
         addButton.anchorCenterXToSuperview()
-        addButton.anchor(classCodeTextField.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 50)
+        addButton.anchor(moduleImageView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 100, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 250, heightConstant: 50)
         
         
         if self.view.viewWithTag(100) != nil {
@@ -61,22 +61,22 @@ class AddModuleController: UICollectionViewController, UICollectionViewDelegateF
         FIRDatabase.fetchModuleWithMId(mId: mId) { (module, dictionary) in
             self.module = module
             self.nameLabel.text = self.module?.className
-            self.statusLabel.text = self.module?.classCaption
+            self.captionLabel.text = self.module?.classCaption
             
             
             self.collectionView?.reloadData()
         }
     }
     
-    let classCodeTextField: UITextField = {
-        let textField = UITextField()
-        
-        textField.placeholder = "Class Code"
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.15)
-        textField.borderStyle = .roundedRect
-        textField.font = UIFont.systemFont(ofSize: 20)
-        return textField
-    }()
+//    let classCodeTextField: UITextField = {
+//        let textField = UITextField()
+//        
+//        textField.placeholder = "Class Code"
+//        textField.backgroundColor = UIColor(white: 1, alpha: 0.15)
+//        textField.borderStyle = .roundedRect
+//        textField.font = UIFont.systemFont(ofSize: 20)
+//        return textField
+//    }()
     
     let addButton: UIButton = {
         let button = UIButton()
@@ -98,7 +98,7 @@ class AddModuleController: UICollectionViewController, UICollectionViewDelegateF
     }()
     
     
-    let statusLabel: UILabel = {
+    let captionLabel: UILabel = {
         let label = UILabel()
         label.text = "Lets learn Art"
         label.font = UIFont.systemFont(ofSize: 26)
@@ -211,7 +211,7 @@ class AddModuleController: UICollectionViewController, UICollectionViewDelegateF
         let modalStyle = UIModalTransitionStyle.crossDissolve
         let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
         customTabBarConroller.modalTransitionStyle = modalStyle
-        customTabBarConroller.setupStudentViewControllers()
+        customTabBarConroller.setupViewControllers(access: (userColors?.access)!)
         self.present(customTabBarConroller, animated: true, completion: nil)
         //animateOut()
     }

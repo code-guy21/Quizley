@@ -24,7 +24,7 @@ class AddCell: UICollectionViewCell {
         view.addSubview(logoImageView)
         logoImageView.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 170, heightConstant: 170)
         logoImageView.anchorCenterSuperview()
-        view.backgroundColor = UIColor(r: 156, g: 36, b: 80)
+        view.backgroundColor = userColors?.darkColor
         return view
     }()
     
@@ -32,7 +32,7 @@ class AddCell: UICollectionViewCell {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Class Name", attributes:[NSForegroundColorAttributeName: UIColor.black])
         tf.placeholder = "Class Name"
-        tf.backgroundColor = UIColor(r: 245, g: 224, b: 229)
+        tf.backgroundColor = userColors?.cellColor
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -41,7 +41,7 @@ class AddCell: UICollectionViewCell {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Class Caption", attributes:[NSForegroundColorAttributeName: UIColor.black])
         //tf.placeholder = "Class Caption"
-        tf.backgroundColor = UIColor(r: 245, g: 224, b: 229)
+        tf.backgroundColor = userColors?.cellColor
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -49,7 +49,7 @@ class AddCell: UICollectionViewCell {
     
     let questionOneTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "How many Great Lakes are there?"
+        tf.text = "How much did she weigh when she was born?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -106,7 +106,7 @@ class AddCell: UICollectionViewCell {
     
     let questionTwoTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Which is the world's highest mountain?"
+        tf.text = "What was her 1st word?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -163,7 +163,7 @@ class AddCell: UICollectionViewCell {
     
     let questionThreeTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Which is the longest river in the U.S.?"
+        tf.text = "Which age is closest to when she started to walk?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -220,7 +220,7 @@ class AddCell: UICollectionViewCell {
     
     let questionFourTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Which of these cities is not in Europe?"
+        tf.text = "When she was born she had so much hair we did pigtails??"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -277,7 +277,7 @@ class AddCell: UICollectionViewCell {
     
     let questionFiveTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "The United Kingdom is comprised of how many countries?"
+        tf.text = "Does she like to dance?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -334,7 +334,7 @@ class AddCell: UICollectionViewCell {
     
     lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 245, g: 224, b: 229)
+        button.backgroundColor = userColors?.cellColor
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.black, for: .normal)
         //button.isUserInteractionEnabled = true
@@ -434,7 +434,6 @@ class AddCell: UICollectionViewCell {
             
             print("Succ to DB")
             //self.dismiss(animated: true, completion: nil)
-            TeacherAddModuleController().Yes()
         }
     }
     

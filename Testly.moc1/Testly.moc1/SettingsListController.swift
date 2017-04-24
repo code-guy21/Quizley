@@ -32,7 +32,7 @@ class SettingListController: UICollectionViewController, UICollectionViewDelegat
         //        collectionView?.backgroundColor = .white
         collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
-        collectionView?.register(SettingCell3.self, forCellWithReuseIdentifier: cellID)
+        collectionView?.register(SettingCell.self, forCellWithReuseIdentifier: cellID)
         
         
         setupNavigationBarItemList()
@@ -72,6 +72,7 @@ class SettingListController: UICollectionViewController, UICollectionViewDelegat
                 try FIRAuth.auth()?.signOut()
                 
                 //change UiViews
+                print(self.navigationController?.childViewControllers.count)
                 self.navigationController?.popViewController(animated: true)
                 let loginRegisterController = LoginRegisterController()
                 let navController = UINavigationController(rootViewController: loginRegisterController)
@@ -89,7 +90,7 @@ class SettingListController: UICollectionViewController, UICollectionViewDelegat
     
     fileprivate func setupNavigationBarItemList() {
         let navBar = navigationController?.navigationBar
-        navBar?.barTintColor = UIColor(r: 0, g: 180, b: 248)
+        navBar?.barTintColor = userColors?.navColor
         navBar?.isTranslucent = false
         
         navigationItem.title = "Settings"
@@ -101,7 +102,7 @@ class SettingListController: UICollectionViewController, UICollectionViewDelegat
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SettingCell3
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SettingCell
         
         cell.setting = settings[indexPath.item]
         

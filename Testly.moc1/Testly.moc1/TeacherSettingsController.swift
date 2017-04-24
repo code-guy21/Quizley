@@ -32,7 +32,7 @@ class TeacherSettingController: UICollectionViewController, UICollectionViewDele
         //        collectionView?.backgroundColor = .white
         collectionView?.backgroundColor = UIColor(r: 230, g: 230, b: 230)
         
-        collectionView?.register(SettingCell3.self, forCellWithReuseIdentifier: cellID)
+        collectionView?.register(SettingCell.self, forCellWithReuseIdentifier: cellID)
         
         
         setupNavigationBarItemList()
@@ -101,7 +101,7 @@ class TeacherSettingController: UICollectionViewController, UICollectionViewDele
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SettingCell3
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SettingCell
         
         cell.setting = settings[indexPath.item]
         

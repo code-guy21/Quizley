@@ -18,8 +18,6 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     
-        collectionView?.backgroundColor = .white
-    
     
         collectionView?.register(AddCell.self, forCellWithReuseIdentifier: cellID)
     
@@ -35,7 +33,7 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
 
     fileprivate func setupNavigationBarItemList() {
         let navBar = navigationController?.navigationBar
-        navBar?.barTintColor = UIColor(r: 176, g: 21, b: 55)
+        navBar?.barTintColor = userColors?.navColor
         navBar?.isTranslucent = false
         
         
@@ -69,27 +67,4 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
         return false
     }
     
-    func Yes() {
-        print("dfsd")
-        //self.collectionView?.reloadData()
-    }
-    
-//    fileprivate func handleAdd() {
-//        guard let mId = moduleID else { return }
-//        
-//        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-//        
-//        let userModuleRef = FIRDatabase.database().reference().child("users").child(uid).child("modules")
-//        let values = [mId: 1]
-//        userModuleRef.updateChildValues(values) { (err, ref) in
-//            
-//            if let err = err {
-//                print("Failed to get module",err)
-//                return
-//            }
-//            
-//            print("Success", mId)
-//        }
-//    }
-
 }

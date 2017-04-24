@@ -27,7 +27,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = SharedModuleData.shared.name
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
 //                label.backgroundColor = .blue
@@ -37,7 +36,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let statusLabel: UILabel = {
         let label = UILabel()
-        label.text = SharedModuleData.shared.status
         label.font = UIFont.systemFont(ofSize: 26)
         label.textAlignment = .center
 //                label.backgroundColor = .red
@@ -47,7 +45,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let moduleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = SharedModuleData.shared.moduleImage
         var color = 0
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true

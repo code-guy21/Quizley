@@ -8,13 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		26A6B2AE6B8062D4F858BDD7 /* Pods_Testly_moc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */; };
-		CF0231E21EA4EE17002D7B82 /* AddModuleController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0231E11EA4EE17002D7B82 /* AddModuleController2.swift */; };
 		CF03FB431E718F0C00470CB5 /* GameCountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB421E718F0C00470CB5 /* GameCountController.swift */; };
-		CF03FB4D1E71DD3900470CB5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */; };
-		CF03FB4F1E71DD7F00470CB5 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB4E1E71DD7F00470CB5 /* User2.swift */; };
 		CF03FB511E71DFF800470CB5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB501E71DFF800470CB5 /* Settings.swift */; };
-		CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */; };
-		CF03FB551E71E6FB00470CB5 /* SelectedSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */; };
 		CF0AEEDC1EA05328004CEC52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF0AEEDB1EA05328004CEC52 /* GoogleService-Info.plist */; };
 		CF0AEEE31EA0610F004CEC52 /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AEEE21EA0610F004CEC52 /* FirebaseUtils.swift */; };
 		CF0AEEE51EA061E8004CEC52 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AEEE41EA061E8004CEC52 /* User.swift */; };
@@ -29,14 +24,11 @@
 		CF16B5651EA855E700621CDE /* UIButtonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF16B5641EA855E700621CDE /* UIButtonUtil.swift */; };
 		CF16B5671EA8646600621CDE /* PullGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF16B5661EA8646600621CDE /* PullGame.swift */; };
 		CF1ABE5F1EA8DE9B00CB22B7 /* SettingsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1ABE5E1EA8DE9B00CB22B7 /* SettingsListController.swift */; };
-		CF1ABE611EA8EA2D00CB22B7 /* SettingCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1ABE601EA8EA2D00CB22B7 /* SettingCell3.swift */; };
+		CF1ABE611EA8EA2D00CB22B7 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1ABE601EA8EA2D00CB22B7 /* SettingCell.swift */; };
 		CF1ABE631EA8F59F00CB22B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1ABE621EA8F59F00CB22B7 /* Assets.xcassets */; };
-		CF1ABE651EA9002900CB22B7 /* ModuleCell3T.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1ABE641EA9002900CB22B7 /* ModuleCell3T.swift */; };
 		CF3650111E9BDF8C0023F9CD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650101E9BDF8C0023F9CD /* GameController.swift */; };
-		CF3650151E9C3CFC0023F9CD /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650141E9C3CFC0023F9CD /* ListHeader.swift */; };
 		CF3650171E9C3E360023F9CD /* LoginRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650161E9C3E360023F9CD /* LoginRegisterController.swift */; };
 		CF3650191E9C3E480023F9CD /* AdminLoginRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3650181E9C3E480023F9CD /* AdminLoginRegisterController.swift */; };
-		CF3F17631EA677600002468F /* ModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F17621EA677600002468F /* ModuleCell.swift */; };
 		CF58779E1E6DBC230082FB0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF58779D1E6DBC230082FB0E /* AppDelegate.swift */; };
 		CF5877A31E6DBC230082FB0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A11E6DBC230082FB0E /* Main.storyboard */; };
 		CF5877A81E6DBC230082FB0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5877A61E6DBC230082FB0E /* LaunchScreen.storyboard */; };
@@ -45,33 +37,25 @@
 		CF5877CE1E6DD17A0082FB0E /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877CD1E6DD17A0082FB0E /* Module.swift */; };
 		CF5877DA1E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */; };
 		CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */; };
-		CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */; };
-		CF5877FE1E70DC030082FB0E /* AddCompModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */; };
-		CF69DE361E7AEB4C00C81181 /* SharedModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */; };
 		CFC553081EA809BC00760ADC /* x_pop.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC553071EA809BC00760ADC /* x_pop.json */; };
 		CFC5530A1EA809C300760ADC /* star_pop.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC553091EA809C300760ADC /* star_pop.json */; };
 		CFC5530C1EA809C800760ADC /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC5530B1EA809C800760ADC /* countdown.json */; };
 		CFC553111EA817B900760ADC /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC553101EA817B900760ADC /* AddCell.swift */; };
 		CFC553171EA81ADE00760ADC /* TeacherAddModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC553161EA81ADE00760ADC /* TeacherAddModuleController.swift */; };
-		CFC553191EA822CB00760ADC /* TeacherModuleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC553181EA822CB00760ADC /* TeacherModuleListController.swift */; };
 		CFC5531C1EA82A9A00760ADC /* TeacherSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC5531B1EA82A9A00760ADC /* TeacherSettingsController.swift */; };
 		CFC6924F1EA926340047352D /* bouncing_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924A1EA926340047352D /* bouncing_heart.json */; };
 		CFC692501EA926340047352D /* cooking_app.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924B1EA926340047352D /* cooking_app.json */; };
 		CFC692511EA926340047352D /* emoji_tongue.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924C1EA926340047352D /* emoji_tongue.json */; };
 		CFC692521EA926340047352D /* emoji_wink.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924D1EA926340047352D /* emoji_wink.json */; };
 		CFC692531EA926340047352D /* colorline.json in Resources */ = {isa = PBXBuildFile; fileRef = CFC6924E1EA926340047352D /* colorline.json */; };
+		CFC692551EABAC9C0047352D /* UserColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC692541EABAC9C0047352D /* UserColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31126084938F895605C4EC57 /* Pods-Testly.moc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.debug.xcconfig"; sourceTree = "<group>"; };
 		781E4225C4DEA5DEBC0F52E7 /* Pods-Testly.moc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testly.moc1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testly.moc1/Pods-Testly.moc1.release.xcconfig"; sourceTree = "<group>"; };
-		CF0231E11EA4EE17002D7B82 /* AddModuleController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleController2.swift; sourceTree = "<group>"; };
 		CF03FB421E718F0C00470CB5 /* GameCountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCountController.swift; sourceTree = "<group>"; };
-		CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		CF03FB4E1E71DD7F00470CB5 /* User2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		CF03FB501E71DFF800470CB5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDatasource.swift; sourceTree = "<group>"; };
-		CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSettingController.swift; sourceTree = "<group>"; };
 		CF0AEEDB1EA05328004CEC52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF0AEEE21EA0610F004CEC52 /* FirebaseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
 		CF0AEEE41EA061E8004CEC52 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -86,14 +70,11 @@
 		CF16B5641EA855E700621CDE /* UIButtonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonUtil.swift; sourceTree = "<group>"; };
 		CF16B5661EA8646600621CDE /* PullGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullGame.swift; sourceTree = "<group>"; };
 		CF1ABE5E1EA8DE9B00CB22B7 /* SettingsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListController.swift; sourceTree = "<group>"; };
-		CF1ABE601EA8EA2D00CB22B7 /* SettingCell3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell3.swift; sourceTree = "<group>"; };
+		CF1ABE601EA8EA2D00CB22B7 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		CF1ABE621EA8F59F00CB22B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CF1ABE641EA9002900CB22B7 /* ModuleCell3T.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCell3T.swift; sourceTree = "<group>"; };
 		CF3650101E9BDF8C0023F9CD /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
-		CF3650141E9C3CFC0023F9CD /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeader.swift; sourceTree = "<group>"; };
 		CF3650161E9C3E360023F9CD /* LoginRegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterController.swift; sourceTree = "<group>"; };
 		CF3650181E9C3E480023F9CD /* AdminLoginRegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginRegisterController.swift; sourceTree = "<group>"; };
-		CF3F17621EA677600002468F /* ModuleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCell.swift; sourceTree = "<group>"; };
 		CF58779A1E6DBC230082FB0E /* Testly.moc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testly.moc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF58779D1E6DBC230082FB0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5877A21E6DBC230082FB0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,21 +85,18 @@
 		CF5877CD1E6DD17A0082FB0E /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBasicModuleHeaderAndFooter.swift; sourceTree = "<group>"; };
 		CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCompModuleHeader.swift; sourceTree = "<group>"; };
-		CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBasicModuleController.swift; sourceTree = "<group>"; };
-		CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCompModuleController.swift; sourceTree = "<group>"; };
-		CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedModuleData.swift; sourceTree = "<group>"; };
 		CFC553071EA809BC00760ADC /* x_pop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = x_pop.json; sourceTree = "<group>"; };
 		CFC553091EA809C300760ADC /* star_pop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star_pop.json; sourceTree = "<group>"; };
 		CFC5530B1EA809C800760ADC /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countdown.json; sourceTree = "<group>"; };
 		CFC553101EA817B900760ADC /* AddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		CFC553161EA81ADE00760ADC /* TeacherAddModuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherAddModuleController.swift; sourceTree = "<group>"; };
-		CFC553181EA822CB00760ADC /* TeacherModuleListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModuleListController.swift; sourceTree = "<group>"; };
 		CFC5531B1EA82A9A00760ADC /* TeacherSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherSettingsController.swift; sourceTree = "<group>"; };
 		CFC6924A1EA926340047352D /* bouncing_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bouncing_heart.json; sourceTree = "<group>"; };
 		CFC6924B1EA926340047352D /* cooking_app.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cooking_app.json; sourceTree = "<group>"; };
 		CFC6924C1EA926340047352D /* emoji_tongue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_tongue.json; sourceTree = "<group>"; };
 		CFC6924D1EA926340047352D /* emoji_wink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_wink.json; sourceTree = "<group>"; };
 		CFC6924E1EA926340047352D /* colorline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colorline.json; sourceTree = "<group>"; };
+		CFC692541EABAC9C0047352D /* UserColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserColors.swift; sourceTree = "<group>"; };
 		D9B5EB9F2C9B1A20F7B06BBB /* Pods_Testly_moc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testly_moc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,13 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				CF3650161E9C3E360023F9CD /* LoginRegisterController.swift */,
-				CF5877B11E6DBE390082FB0E /* View */,
 				CF36500F1E9BDE540023F9CD /* Play */,
 				CF3F175F1EA66E970002468F /* Add */,
 				CF1ABE5D1EA8DE2B00CB22B7 /* Settings */,
-				CF03FB541E71E6FB00470CB5 /* SelectedSettingController.swift */,
-				CF5877FB1E70DBEC0082FB0E /* AddBasicModuleController.swift */,
-				CF5877FD1E70DC030082FB0E /* AddCompModuleController.swift */,
 			);
 			name = Student;
 			sourceTree = "<group>";
@@ -170,9 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CF3650181E9C3E480023F9CD /* AdminLoginRegisterController.swift */,
-				CF0231E11EA4EE17002D7B82 /* AddModuleController2.swift */,
 				CFC5530F1EA817A200760ADC /* Views */,
-				CFC5530D1EA8177D00760ADC /* Play */,
 				CFC5530E1EA8178D00760ADC /* Add */,
 				CFC5531A1EA829EF00760ADC /* Settings */,
 			);
@@ -204,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				CF1ABE5E1EA8DE9B00CB22B7 /* SettingsListController.swift */,
-				CF1ABE601EA8EA2D00CB22B7 /* SettingCell3.swift */,
+				CF1ABE601EA8EA2D00CB22B7 /* SettingCell.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -255,8 +227,8 @@
 				CFC553061EA8098E00760ADC /* Animation JSONs */,
 				CF0AEEE11EA060F8004CEC52 /* Utils */,
 				CF5877B21E6DBE4B0082FB0E /* Service */,
-				CF5877B01E6DBE280082FB0E /* Controller */,
 				CF5877AF1E6DBE1D0082FB0E /* Model */,
+				CF5877B01E6DBE280082FB0E /* Controller */,
 				CF58779D1E6DBC230082FB0E /* AppDelegate.swift */,
 				CF5877C11E6DC17C0082FB0E /* CustomTabBarController.swift */,
 				CF5877A11E6DBC230082FB0E /* Main.storyboard */,
@@ -270,11 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				CF5877CD1E6DD17A0082FB0E /* Module.swift */,
-				CF03FB4E1E71DD7F00470CB5 /* User2.swift */,
 				CF03FB501E71DFF800470CB5 /* Settings.swift */,
-				CF03FB521E71E04500470CB5 /* SettingsDatasource.swift */,
-				CF69DE351E7AEB4C00C81181 /* SharedModuleData.swift */,
 				CF0AEEE41EA061E8004CEC52 /* User.swift */,
+				CFC692541EABAC9C0047352D /* UserColors.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,20 +254,18 @@
 			children = (
 				CF0AEEDE1EA05D2E004CEC52 /* Teacher */,
 				CF0AEEDD1EA05D27004CEC52 /* Student */,
+				CF5877B11E6DBE390082FB0E /* Next projects */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		CF5877B11E6DBE390082FB0E /* View */ = {
+		CF5877B11E6DBE390082FB0E /* Next projects */ = {
 			isa = PBXGroup;
 			children = (
-				CF3F17621EA677600002468F /* ModuleCell.swift */,
-				CF03FB4C1E71DD3900470CB5 /* SettingsCell.swift */,
 				CF5877D91E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift */,
 				CF5877DB1E6DDB060082FB0E /* SelectCompModuleHeader.swift */,
-				CF3650141E9C3CFC0023F9CD /* ListHeader.swift */,
 			);
-			name = View;
+			name = "Next projects";
 			sourceTree = "<group>";
 		};
 		CF5877B21E6DBE4B0082FB0E /* Service */ = {
@@ -322,15 +290,6 @@
 				CFC6924E1EA926340047352D /* colorline.json */,
 			);
 			name = "Animation JSONs";
-			sourceTree = "<group>";
-		};
-		CFC5530D1EA8177D00760ADC /* Play */ = {
-			isa = PBXGroup;
-			children = (
-				CFC553181EA822CB00760ADC /* TeacherModuleListController.swift */,
-				CF1ABE641EA9002900CB22B7 /* ModuleCell3T.swift */,
-			);
-			name = Play;
 			sourceTree = "<group>";
 		};
 		CFC5530E1EA8178D00760ADC /* Add */ = {
@@ -491,45 +450,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF0F77FC1EA7F81E00546E1C /* QuestionsModel.swift in Sources */,
-				CF3650151E9C3CFC0023F9CD /* ListHeader.swift in Sources */,
-				CF69DE361E7AEB4C00C81181 /* SharedModuleData.swift in Sources */,
 				CF0FC5A71EA7AB2B00E936DA /* AddMoudleListController.swift in Sources */,
-				CF0231E21EA4EE17002D7B82 /* AddModuleController2.swift in Sources */,
+				CFC692551EABAC9C0047352D /* UserColors.swift in Sources */,
 				CF16B5651EA855E700621CDE /* UIButtonUtil.swift in Sources */,
 				CF5877DC1E6DDB060082FB0E /* SelectCompModuleHeader.swift in Sources */,
 				CF13FC391EA7C3ED009690C9 /* AddModuleController.swift in Sources */,
-				CF5877FC1E70DBEC0082FB0E /* AddBasicModuleController.swift in Sources */,
 				CF13FC371EA7B830009690C9 /* ModuleHeader.swift in Sources */,
 				CF5877CA1E6DCDF30082FB0E /* LoadGameController.swift in Sources */,
 				CF0AEEE51EA061E8004CEC52 /* User.swift in Sources */,
-				CF1ABE651EA9002900CB22B7 /* ModuleCell3T.swift in Sources */,
 				CF3650171E9C3E360023F9CD /* LoginRegisterController.swift in Sources */,
 				CF0F77FA1EA7F81600546E1C /* QuestionModel.swift in Sources */,
-				CF1ABE611EA8EA2D00CB22B7 /* SettingCell3.swift in Sources */,
-				CF03FB4F1E71DD7F00470CB5 /* User2.swift in Sources */,
+				CF1ABE611EA8EA2D00CB22B7 /* SettingCell.swift in Sources */,
 				CFC553111EA817B900760ADC /* AddCell.swift in Sources */,
 				CF3650191E9C3E480023F9CD /* AdminLoginRegisterController.swift in Sources */,
 				CF0AEEE31EA0610F004CEC52 /* FirebaseUtils.swift in Sources */,
 				CF03FB431E718F0C00470CB5 /* GameCountController.swift in Sources */,
 				CF1ABE5F1EA8DE9B00CB22B7 /* SettingsListController.swift in Sources */,
 				CFC553171EA81ADE00760ADC /* TeacherAddModuleController.swift in Sources */,
-				CF3F17631EA677600002468F /* ModuleCell.swift in Sources */,
-				CF03FB531E71E04500470CB5 /* SettingsDatasource.swift in Sources */,
 				CF0F77FE1EA7F86F00546E1C /* RoundController.swift in Sources */,
 				CF13FC351EA7B3E9009690C9 /* ModuleCell3.swift in Sources */,
 				CF0F77F71EA7DA1C00546E1C /* MyModuleListController.swift in Sources */,
 				CF3650111E9BDF8C0023F9CD /* GameController.swift in Sources */,
-				CFC553191EA822CB00760ADC /* TeacherModuleListController.swift in Sources */,
-				CF03FB4D1E71DD3900470CB5 /* SettingsCell.swift in Sources */,
 				CFC5531C1EA82A9A00760ADC /* TeacherSettingsController.swift in Sources */,
 				CF5877C21E6DC17C0082FB0E /* CustomTabBarController.swift in Sources */,
-				CF03FB551E71E6FB00470CB5 /* SelectedSettingController.swift in Sources */,
 				CF16B5671EA8646600621CDE /* PullGame.swift in Sources */,
 				CF5877DA1E6DD97A0082FB0E /* SelectBasicModuleHeaderAndFooter.swift in Sources */,
 				CF58779E1E6DBC230082FB0E /* AppDelegate.swift in Sources */,
 				CF03FB511E71DFF800470CB5 /* Settings.swift in Sources */,
 				CF5877CE1E6DD17A0082FB0E /* Module.swift in Sources */,
-				CF5877FE1E70DC030082FB0E /* AddCompModuleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
