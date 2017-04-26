@@ -9,7 +9,7 @@
 import UIKit
 
 struct Settings {
-    let type: String
-    let UserInput: String
-    let typeImage: UIImage
+    var type: String
+    var UserInput: String
+    var typeImage: UIImage
 }

@@ -8,26 +8,40 @@
 
 
 import LBTAComponents
+import UIKit
 import Firebase
 
 class AddCell: UICollectionViewCell {
     
+    
+    let logoContainerView: UIView = {
+        let view = UIView()
+        
+        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "logoblue"))
+        logoImageView.frame = CGRect(x: 0, y: 0, width: 170, height: 170)
+        logoImageView.contentMode = .scaleAspectFit
+        
+        view.addSubview(logoImageView)
+        logoImageView.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 170, heightConstant: 170)
+        logoImageView.anchorCenterSuperview()
+        view.backgroundColor = userColors?.darkColor
+        return view
+    }()
+    
     let className: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Class Name", attributes:[NSForegroundColorAttributeName: UIColor.white])
+        tf.attributedPlaceholder = NSAttributedString(string: "Class Name", attributes:[NSForegroundColorAttributeName: UIColor.black])
         tf.placeholder = "Class Name"
-        tf.backgroundColor = UIColor(r: 176, g: 21, b: 55)
-        tf.textColor = .white
+        tf.backgroundColor = userColors?.cellColor
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     let classCaption: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Class Caption", attributes:[NSForegroundColorAttributeName: UIColor.white])
+        tf.attributedPlaceholder = NSAttributedString(string: "Class Caption", attributes:[NSForegroundColorAttributeName: UIColor.black])
         //tf.placeholder = "Class Caption"
-        tf.backgroundColor = UIColor(r: 176, g: 21, b: 55)
-        tf.textColor = .white
+        tf.backgroundColor = userColors?.cellColor
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -35,7 +49,7 @@ class AddCell: UICollectionViewCell {
     
     let questionOneTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 1"
+        tf.text = "Which country was the first to allow women to vote in national elections?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -46,6 +60,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q1), for: .touchUpInside)
         return tf
     }()
     let answerTwoTextFieldQ1: UITextField = {
@@ -54,6 +69,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q1), for: .touchUpInside)
         return tf
     }()
     let answerThreeTextFieldQ1: UITextField = {
@@ -62,6 +78,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q1), for: .touchUpInside)
         return tf
     }()
     let answerFourTextFieldQ1: UITextField = {
@@ -70,6 +87,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q1), for: .touchUpInside)
         return tf
     }()
     let numForAnswerQ1: UITextField = {
@@ -78,12 +96,17 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q1), for: .touchUpInside)
         return tf
     }()
     
+    func q1() {
+        self.answerOneTextFieldQ1.becomeFirstResponder()
+    }
+    
     let questionTwoTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 2"
+        tf.text = "Which of these countries won the most medals in the 2012 Summer Games?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -94,6 +117,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q2), for: .touchUpInside)
         return tf
     }()
     let answerTwoTextFieldQ2: UITextField = {
@@ -102,6 +126,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q2), for: .touchUpInside)
         return tf
     }()
     let answerThreeTextFieldQ2: UITextField = {
@@ -110,6 +135,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q2), for: .touchUpInside)
         return tf
     }()
     let answerFourTextFieldQ2: UITextField = {
@@ -118,6 +144,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q2), for: .touchUpInside)
         return tf
     }()
     let numForAnswerQ2: UITextField = {
@@ -126,12 +153,17 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q2), for: .touchUpInside)
         return tf
     }()
     
+    func q2() {
+        self.answerOneTextFieldQ2.becomeFirstResponder()
+    }
+    
     let questionThreeTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 3"
+        tf.text = "Which city is the oldest?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -142,6 +174,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q3), for: .touchUpInside)
         return tf
     }()
     let answerTwoTextFieldQ3: UITextField = {
@@ -150,6 +183,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q3), for: .touchUpInside)
         return tf
     }()
     let answerThreeTextFieldQ3: UITextField = {
@@ -158,6 +192,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q3), for: .touchUpInside)
         return tf
     }()
     let answerFourTextFieldQ3: UITextField = {
@@ -166,6 +201,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q3), for: .touchUpInside)
         return tf
     }()
     let numForAnswerQ3: UITextField = {
@@ -174,12 +210,17 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q3), for: .touchUpInside)
         return tf
     }()
     
+    func q3() {
+        self.answerOneTextFieldQ3.becomeFirstResponder()
+    }
+    
     let questionFourTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 4"
+        tf.text = "Which of the following rivers is longest?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -190,6 +231,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q4), for: .touchUpInside)
         return tf
     }()
     let answerTwoTextFieldQ4: UITextField = {
@@ -198,6 +240,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q4), for: .touchUpInside)
         return tf
     }()
     let answerThreeTextFieldQ4: UITextField = {
@@ -206,6 +249,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q4), for: .touchUpInside)
         return tf
     }()
     let answerFourTextFieldQ4: UITextField = {
@@ -214,6 +258,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q4), for: .touchUpInside)
         return tf
     }()
     let numForAnswerQ4: UITextField = {
@@ -222,12 +267,17 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q4), for: .touchUpInside)
         return tf
     }()
     
+    func q4() {
+        self.answerOneTextFieldQ4.becomeFirstResponder()
+    }
+    
     let questionFiveTextView: UITextView = {
         let tf = UITextView()
-        tf.text = "Question 5"
+        tf.text = "Which country has most recently won consecutive World Cups in Soccer?"
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -238,6 +288,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q5), for: .touchUpInside)
         return tf
     }()
     let answerTwoTextFieldQ5: UITextField = {
@@ -246,6 +297,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q5), for: .touchUpInside)
         return tf
     }()
     let answerThreeTextFieldQ5: UITextField = {
@@ -254,6 +306,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q5), for: .touchUpInside)
         return tf
     }()
     let answerFourTextFieldQ5: UITextField = {
@@ -262,6 +315,7 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q5), for: .touchUpInside)
         return tf
     }()
     let numForAnswerQ5: UITextField = {
@@ -270,19 +324,26 @@ class AddCell: UICollectionViewCell {
         tf.backgroundColor = UIColor(white: 1, alpha: 0.9)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(q5), for: .touchUpInside)
         return tf
     }()
-    let saveButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(r: 176, g: 21, b: 55)
+    
+    func q5() {
+        self.answerOneTextFieldQ5.becomeFirstResponder()
+    }
+    
+    lazy var saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = userColors?.cellColor
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        //button.isUserInteractionEnabled = true
+        //button.addTarget(self, action: #selector(handelSave), for: .touchUpInside)
         button.addTarget(self, action: #selector(handelSave), for: .touchUpInside)
         return button
     }()
     
-    
-     func handelSave(sender: UIButton) {
+     func handelSave() {
         //header
         print("hi")
         guard let name = className.text, name.characters.count > 0 else { return }
@@ -291,49 +352,82 @@ class AddCell: UICollectionViewCell {
         guard let Q1 = questionOneTextView.text, Q1.characters.count > 0 else { return }
         guard let A1Q1 = answerOneTextFieldQ1.text, A1Q1.characters.count > 0 else { return }
         guard let A2Q1 = answerTwoTextFieldQ1.text, A2Q1.characters.count > 0 else { return }
-        guard let A3Q1 = answerThreeTextFieldQ1.text, A3Q1.characters.count > 0 else { return }
-        guard let A4Q1 = answerFourTextFieldQ1.text, A4Q1.characters.count > 0 else { return }
+        guard let A3Q1 = answerThreeTextFieldQ1.text else { return }
+        guard let A4Q1 = answerFourTextFieldQ1.text else { return }
         guard let numAQ1 = numForAnswerQ1.text, numAQ1.characters.count > 0 else { return }
         
         //Q2
-        guard let Q2 = questionOneTextView.text, Q2.characters.count > 0 else { return }
+        guard let Q2 = questionTwoTextView.text, Q2.characters.count > 0 else { return }
         guard let A1Q2 = answerOneTextFieldQ2.text, A1Q2.characters.count > 0 else { return }
         guard let A2Q2 = answerTwoTextFieldQ2.text, A2Q2.characters.count > 0 else { return }
-        guard let A3Q2 = answerThreeTextFieldQ2.text, A3Q2.characters.count > 0 else { return }
-        guard let A4Q2 = answerFourTextFieldQ2.text, A4Q2.characters.count > 0 else { return }
+        guard let A3Q2 = answerThreeTextFieldQ2.text else { return }
+        guard let A4Q2 = answerFourTextFieldQ2.text else { return }
         guard let numAQ2 = numForAnswerQ2.text, numAQ2.characters.count > 0 else { return }
         
         //Q3
-        guard let Q3 = questionOneTextView.text, Q3.characters.count > 0 else { return }
+        guard let Q3 = questionThreeTextView.text, Q3.characters.count > 0 else { return }
         guard let A1Q3 = answerOneTextFieldQ3.text, A1Q3.characters.count > 0 else { return }
         guard let A2Q3 = answerTwoTextFieldQ3.text, A2Q3.characters.count > 0 else { return }
-        guard let A3Q3 = answerThreeTextFieldQ3.text, A3Q3.characters.count > 0 else { return }
-        guard let A4Q3 = answerFourTextFieldQ3.text, A4Q3.characters.count > 0 else { return }
+        guard let A3Q3 = answerThreeTextFieldQ3.text else { return }
+        guard let A4Q3 = answerFourTextFieldQ3.text else { return }
         guard let numAQ3 = numForAnswerQ3.text, numAQ3.characters.count > 0 else { return }
         
         //Q4
-        guard let Q4 = questionOneTextView.text, Q4.characters.count > 0 else { return }
+        guard let Q4 = questionFourTextView.text, Q4.characters.count > 0 else { return }
         guard let A1Q4 = answerOneTextFieldQ4.text, A1Q4.characters.count > 0 else { return }
         guard let A2Q4 = answerTwoTextFieldQ4.text, A2Q4.characters.count > 0 else { return }
-        guard let A3Q4 = answerThreeTextFieldQ4.text, A3Q4.characters.count > 0 else { return }
-        guard let A4Q4 = answerFourTextFieldQ4.text, A4Q4.characters.count > 0 else { return }
+        guard let A3Q4 = answerThreeTextFieldQ4.text else { return }
+        guard let A4Q4 = answerFourTextFieldQ4.text else { return }
         guard let numAQ4 = numForAnswerQ4.text, numAQ4.characters.count > 0 else { return }
         
         //Q5
-        guard let Q5 = questionOneTextView.text, Q5.characters.count > 0 else { return }
+        guard let Q5 = questionFiveTextView.text, Q5.characters.count > 0 else { return }
         guard let A1Q5 = answerOneTextFieldQ5.text, A1Q5.characters.count > 0 else { return }
         guard let A2Q5 = answerTwoTextFieldQ5.text, A2Q5.characters.count > 0 else { return }
-        guard let A3Q5 = answerThreeTextFieldQ5.text, A3Q5.characters.count > 0 else { return }
-        guard let A4Q5 = answerFourTextFieldQ5.text, A4Q5.characters.count > 0 else { return }
+        guard let A3Q5 = answerThreeTextFieldQ5.text else { return }
+        guard let A4Q5 = answerFourTextFieldQ5.text else { return }
         guard let numAQ5 = numForAnswerQ5.text, numAQ5.characters.count > 0 else { return }
         
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
         
-        let userPostRef = FIRDatabase.database().reference().child("modules").child(uid)
+        let userPostRef = FIRDatabase.database().reference().child("modules")
         
         let ref = userPostRef.childByAutoId()
         
-        let values = ["ClassName": name, "ClassCaption":caption, "Q1":Q1, "Q2":Q2, "Q3":Q3, "Q4":Q4, "Q5":Q5] as [String : Any]
+        print(ref.key)
+        
+        
+        let values = ["ClassName": name, "ClassCaption":caption,
+                      "Q1":Q1,
+                                "A1Q1":A1Q1,
+                                "A2Q1":A2Q1,
+                                "A3Q1":A3Q1,
+                                "A4Q1":A4Q1,
+                                "numAQ1":numAQ1,
+                        "Q2":Q2,
+                                "A1Q2":A1Q2,
+                                "A2Q2":A2Q2,
+                                "A3Q2":A3Q2,
+                                "A4Q2":A4Q2,
+                                "numAQ2":numAQ2,
+                        "Q3":Q3,
+                                "A1Q3":A1Q3,
+                                "A2Q3":A2Q3,
+                                "A3Q3":A3Q3,
+                                "A4Q3":A4Q3,
+                                "numAQ3":numAQ3,
+                        "Q4":Q4,
+                                "A1Q4":A1Q4,
+                                "A2Q4":A2Q4,
+                                "A3Q4":A3Q4,
+                                "A4Q4":A4Q4,
+                                "numAQ4":numAQ4,
+                        "Q5":Q5,
+                                "A1Q5":A1Q5,
+                                "A2Q5":A2Q5,
+                                "A3Q5":A3Q5,
+                                "A4Q5":A4Q5,
+                                "numAQ5":numAQ5] as [String : Any]
         
         ref.updateChildValues(values) { (err, ref) in
             if let err = err {
@@ -342,7 +436,27 @@ class AddCell: UICollectionViewCell {
             }
             
             print("Succ to DB")
-            //self.dismiss(animated: true, completion: nil)
+            guard let mId = ref.key as? String else { return }
+            self.handleAdd(mId: mId)
+        }
+    }
+    
+
+    
+    fileprivate func handleAdd(mId: String) {
+        
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        let userModuleRef = FIRDatabase.database().reference().child("users").child(uid).child("modules")
+        let values = [mId: 1]
+        userModuleRef.updateChildValues(values) { (err, ref) in
+            
+            if let err = err {
+                print("Failed to get module",err)
+                return
+            }
+            
+            print("Success", mId)
         }
     }
     
@@ -352,7 +466,8 @@ class AddCell: UICollectionViewCell {
         super.init(frame: frame)
         
         backgroundColor = UIColor(r: 176, g: 21, b: 55)
-        
+        addSubview(logoContainerView)
+        logoContainerView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 300)
         let stackView  = UIStackView(arrangedSubviews: [className,classCaption])
         
         stackView.backgroundColor = UIColor(r: 246, g: 228, b: 232)
@@ -361,7 +476,7 @@ class AddCell: UICollectionViewCell {
         stackView.spacing = 10
         
         addSubview(stackView)
-        stackView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 100)
+        stackView.anchor(logoContainerView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 100)
         
     
         //Q1
@@ -513,4 +628,8 @@ class AddCell: UICollectionViewCell {
         stackView.anchor(questionFiveTextView.topAnchor, left: nil, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 10, widthConstant: 160, heightConstant: 140)
         
     }
+    
+    
+    
+    
 }

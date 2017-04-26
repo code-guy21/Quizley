@@ -32,15 +32,13 @@ class AddMController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    var user: User?
     var modules = [Module]()
+    
     func fetchModules() {
         //our classes
-        let uid = "fochXH9eJsY3Ek5CY7Agunxy4Bw2"
-        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
-            self.user = user
-            let ref = FIRDatabase.database().reference().child("modules").child(uid)
-            ref.observeSingleEvent(of: .value, with:{ (snapshot) in
+        
+        let ref = FIRDatabase.database().reference().child("modules")
+        ref.observeSingleEvent(of: .value, with:{ (snapshot) in
                 
                 guard let dictionaries = snapshot.value as? [String:Any] else { return }
                 
@@ -57,8 +55,6 @@ class AddMController: UICollectionViewController, UICollectionViewDelegateFlowLa
             }) { (err) in
                 print("Failed to fetch ordered Modules:", err)
             }
-            
-        }
     }
     
     fileprivate func setupNavigationBarItemList() {

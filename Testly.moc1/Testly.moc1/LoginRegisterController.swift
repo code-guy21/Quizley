@@ -15,9 +15,12 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     let logoContainerView: UIView = {
         let view = UIView()
         
-        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "math"))
+        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "logored"))
+        logoImageView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        logoImageView.contentMode = .scaleAspectFit
         
         view.addSubview(logoImageView)
+        logoImageView.anchor(nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 120, heightConstant: 120)
         logoImageView.anchorCenterSuperview()
         view.backgroundColor = UIColor(r: 0, g: 120, b: 176)
         return view
@@ -60,6 +63,8 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         return tf
     }()
     
+    
+    
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
@@ -75,6 +80,27 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         let tf = UITextField()
         tf.placeholder = "Email"
         tf.keyboardType = .emailAddress
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        return tf
+    }()
+    
+    let phoneTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Phone"
+        tf.keyboardType = .phonePad
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        return tf
+    }()
+    
+    let nameTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Name"
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
@@ -104,22 +130,14 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
                 print("Failed to sign in with email", err)
                 return
             }
-            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? CustomTabBarConroller else {return}
-            mainTabBarController.setupStudentViewControllers()
-            self.dismiss(animated: true, completion: nil)
-//            self.fetchUser()
-//            
-//            if(self.access == "student") {
-//            print("it worked" , user?.uid ?? "")
-//            
 //            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? CustomTabBarConroller else {return}
-//            mainTabBarController.setupStudentViewControllers()
+//            mainTabBarController.fetchUser()
 //            self.dismiss(animated: true, completion: nil)
-//            }
-//            else {
-//                self.handleLogout()
-//                return
-//            }
+            let modalStyle = UIModalTransitionStyle.coverVertical
+            let customTabBarConroller:CustomTabBarConroller = CustomTabBarConroller()
+            customTabBarConroller.modalTransitionStyle = modalStyle
+            customTabBarConroller.fetchUser()
+            self.present(customTabBarConroller, animated: true, completion: nil)
             
         })
     }
@@ -160,9 +178,12 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     }()
     
     func handleRegister() {
+        view.endEditing(true)
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         guard let username = usernameTextField.text else { return }
+        guard let name = nameTextField.text else { return }
+        guard let phone = phoneTextField.text else { return }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
             
@@ -173,7 +194,8 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
             
             guard let uid = user?.uid else { return }
             
-            let dictionaryValues = ["username": username,"email": email,"access":"student"]
+            let dictionaryValues = ["username": username,"email": email,
+                                      "name": name, "phone":phone, "password":password, "access":"student"]
             let values = [uid: dictionaryValues]
             FIRDatabase.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err,
                 ref) in
@@ -184,6 +206,8 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
                 }
                 
                 print("Succ")
+                self.loginRegisterSegmentedControl.selectedSegmentIndex = 0
+                self.handleLoginRegisterChange()
             })
             
         })
@@ -191,7 +215,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     
     func handleTextInputChange() {
         let isLoginVaild = emailTextField.text?.characters.count ?? 0 > 0 &&
-            passwordTextField.text?.characters.count ?? 0 > 0
+            passwordTextField.text?.characters.count ?? 0 > 5
         
         if isLoginVaild {
             loginButton.backgroundColor = UIColor(r: 17, g: 154, b: 237)
@@ -203,8 +227,10 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         }
         
         let isRegisterVaild = emailTextField.text?.characters.count ?? 0 > 0 &&
-            passwordTextField.text?.characters.count ?? 0 > 0 &&
-            usernameTextField.text?.characters.count ?? 0 > 0
+            passwordTextField.text?.characters.count ?? 0 > 5 &&
+            usernameTextField.text?.characters.count ?? 0 > 0 &&
+            nameTextField.text?.characters.count ?? 0 > 0 &&
+            phoneTextField.text?.characters.count ?? 0 > 0
         
         if isRegisterVaild {
             registerButton.backgroundColor = UIColor(r: 17, g: 154, b: 237)
@@ -239,6 +265,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         view.addSubview(logoContainerView)
         logoContainerView.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 160)
@@ -247,10 +274,10 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         view.backgroundColor = .white
         
         view.addSubview(studentLabel);
-        studentLabel.anchor(logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 20, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 30)
+        studentLabel.anchor(logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 30)
         
         view.addSubview(loginRegisterSegmentedControl)
-        loginRegisterSegmentedControl.anchor(studentLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 20, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 30)
+        loginRegisterSegmentedControl.anchor(studentLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 20)
         setupLoginFields()
     
         view.addSubview(becomeAnAdminButton)
@@ -260,6 +287,8 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
     fileprivate func setupLoginFields() {
         
         usernameTextField.removeFromSuperview()
+        nameTextField.removeFromSuperview()
+        phoneTextField.removeFromSuperview()
         registerButton.removeFromSuperview()
         let stackView  = UIStackView(arrangedSubviews: [emailTextField,passwordTextField, loginButton])
         
@@ -269,7 +298,7 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         stackView.axis = .vertical
         stackView.spacing = 10
         
-        stackView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 140)
+        stackView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 135)
         
     }
     
@@ -277,15 +306,15 @@ class LoginRegisterController: UIViewController, UINavigationControllerDelegate 
         
         
         loginButton.removeFromSuperview()
-        let stackView  = UIStackView(arrangedSubviews: [usernameTextField, emailTextField,passwordTextField, registerButton])
+        let stackView  = UIStackView(arrangedSubviews: [nameTextField, phoneTextField, usernameTextField, emailTextField,passwordTextField, registerButton])
         
         view.addSubview(stackView)
         
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 5
         
-        stackView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 190)
+        stackView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 10, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 205)
         
     }
 }

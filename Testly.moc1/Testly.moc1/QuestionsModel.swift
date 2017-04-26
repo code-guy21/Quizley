@@ -10,7 +10,6 @@ import GameKit
 
 
 struct QuestionsModel {
-    
     //Array of all questions
     var questions: [QuestionModel] = [
         QuestionModel(
@@ -143,6 +142,79 @@ struct QuestionsModel {
         let indexOfSelectedQuestion: Int = GKRandomSource.sharedRandom().nextInt(upperBound: questions.count)
         return questions[indexOfSelectedQuestion]
     }
+    
+    //    init(dictionary: [String:Any]) {
+//        print(dictionary)
+//        //Q1
+//        var ans: String = dictionary["numAQ1"] as? String ?? ""
+//        let quest1 = QuestionModel(question: dictionary["Q1"] as? String ?? "", answers: [ dictionary["A1Q1"] as? String ?? "" ,
+//            dictionary["A2Q1"] as? String ?? ""  ,
+//            dictionary["A3Q1"] as? String ?? ""  ,
+//            dictionary["A4Q1"] as? String ?? ""  ],
+//                                correctAnswer: Int(ans)!)
+//        
+//        //Q2
+//        ans = dictionary["numAQ2"] as? String ?? ""
+//        let quest2 = QuestionModel(question: dictionary["Q2"] as? String ?? "", answers: [ dictionary["A1Q2"] as? String ?? "" ,
+//            dictionary["A2Q2"] as? String ?? ""  ,
+//            dictionary["A3Q2"] as? String ?? ""  ,
+//            dictionary["A4Q2"] as? String ?? ""  ],
+//                                   correctAnswer: Int(ans)!)
+//        
+//        //Q3
+//        ans = dictionary["numAQ3"] as? String ?? ""
+//        let quest3 = QuestionModel(question: dictionary["Q3"] as? String ?? "", answers: [ dictionary["A1Q3"] as? String ?? "" ,
+//                                                                                           dictionary["A2Q3"] as? String ?? ""  ,
+//                                                                                           dictionary["A3Q3"] as? String ?? ""  ,
+//                                                                                           dictionary["A4Q3"] as? String ?? ""  ],
+//                                   correctAnswer: Int(ans)!)
+//        
+//        //Q4
+//        ans = dictionary["numAQ4"] as? String ?? ""
+//        let quest4 = QuestionModel(question: dictionary["Q4"] as? String ?? "", answers: [ dictionary["A1Q4"] as? String ?? "" ,
+//                                                                                           dictionary["A2Q4"] as? String ?? ""  ,
+//                                                                                           dictionary["A3Q4"] as? String ?? ""  ,
+//                                                                                           dictionary["A4Q4"] as? String ?? ""  ],
+//                                   correctAnswer: Int(ans)!)
+//        
+//        //Q5
+//        ans = dictionary["numAQ5"] as? String ?? ""
+//        let quest5 = QuestionModel(question: dictionary["Q5"] as? String ?? "", answers: [ dictionary["A1Q5"] as? String ?? "" ,
+//                                                                                           dictionary["A2Q5"] as? String ?? ""  ,
+//                                                                                           dictionary["A3Q5"] as? String ?? ""  ,
+//                                                                                           dictionary["A4Q5"] as? String ?? ""  ],
+//                                   correctAnswer: Int(ans)!)
+//        
+//        self.questions = [quest1,quest2,quest3,quest4,quest5]
+//    }
+    init(dictionary: [String:Any]) {
+        print(dictionary)
+        //Q1
+        var ans: String = dictionary["numAQ1"] as? String ?? ""
+        let quest1 = QuestionModel(dictionary: dictionary, question: "Q1", correctAnswer: ans)
+        
+        //Q2
+        ans = dictionary["numAQ2"] as? String ?? ""
+        let quest2 = QuestionModel(dictionary: dictionary, question: "Q2", correctAnswer: ans)
+        
+        //Q3
+        ans = dictionary["numAQ3"] as? String ?? ""
+        let quest3 = QuestionModel(dictionary: dictionary, question: "Q3", correctAnswer: ans)
+        
+        //Q4
+        ans = dictionary["numAQ4"] as? String ?? ""
+        let quest4 = QuestionModel(dictionary: dictionary, question: "Q4", correctAnswer: ans)
+        
+        //Q5
+        ans = dictionary["numAQ5"] as? String ?? ""
+        let quest5 = QuestionModel(dictionary: dictionary, question: "Q5", correctAnswer: ans)
+        
+        self.questions = [quest1,quest2,quest3,quest4,quest5]
+    }
+
+    
+    
+    
     
     
     

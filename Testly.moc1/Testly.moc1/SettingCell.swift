@@ -1,36 +1,31 @@
 //
-//  SettingsCell.swift
+//  SettingCell3.swift
 //  Testly.moc1
 //
-//  Created by Miguel Chavez on 3/9/17.
+//  Created by Miguel Chavez on 4/20/17.
 //  Copyright © 2017 Miguel Chavez. All rights reserved.
 //
 
 import LBTAComponents
-class SettingsCell: DatasourceCell {
-    
-    //    var color = 0;
-    //this lables with the string array of HomeDatasource
-    override var datasourceItem: Any?{
-        didSet{
-            guard let settings = datasourceItem as? Settings else { return }
-            typeLabel.text = settings.type + ":"
-            userInputLabel.text = settings.UserInput
-            settingsImageView.image = settings.typeImage
+class SettingCell: UICollectionViewCell {
+    var setting: Settings? {
+        didSet {
+            typeLabel.text = setting?.type
+            userInputLabel.text = setting?.UserInput
+            settingsImageView.image = setting?.typeImage
         }
     }
-    
-    //here we make a lable for the name GREEN
-    let typeLabel: UILabel = {
+        //here we make a lable for the name GREEN
+        let typeLabel: UILabel = {
         let label = UILabel()
         label.text = "UserName"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         //        label.backgroundColor = .green
         return label
-    }()
-    
-    //here we make a lable for the name Red
-    let userInputLabel: UILabel = {
+        }()
+        
+        //here we make a lable for the name Red
+        let userInputLabel: UILabel = {
         let label = UILabel()
         label.text = "chavezucf"
         label.font = UIFont.systemFont(ofSize: 16)
@@ -38,9 +33,9 @@ class SettingsCell: DatasourceCell {
         label.textAlignment = .right
         
         return label
-    }()
-    
-    let settingsImageView: UIImageView = {
+        }()
+        
+        let settingsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "userNam")
         //var color = 0
@@ -50,24 +45,21 @@ class SettingsCell: DatasourceCell {
         
         //        imageView.backgroundColor = .blue
         return imageView
-    }()
-    
-    let nextImageView: UIImageView = {
+        }()
+        
+        let nextImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "next")
         //        imageView.backgroundColor = .yellow
         return imageView
-    }()
-    
-    //make it look how we want it
-    override func setupViews() {
-        super.setupViews()
+        }()
+        
+        //make it look how we want it
+        override init (frame: CGRect) {
+        super.init(frame: frame)
         
         backgroundColor = .white
         
-        //backgroundColor = UIColor(r: 201, g: 224, b: 255)
-        separatorLineView.isHidden = false
-        separatorLineView.backgroundColor = UIColor(r: 0, g: 0, b: 0)
         
         
         // all the subareas in the cell (add JmenuItem to JmenuBar)
@@ -87,5 +79,17 @@ class SettingsCell: DatasourceCell {
         
         //statusLable Red
         userInputLabel.anchor(self.topAnchor, left: nil, bottom: nil, right: nextImageView.leftAnchor, topConstant: 12, leftConstant: 0 , bottomConstant: 0, rightConstant: 5, widthConstant: 250, heightConstant: 20)
+    
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+    
+        addSubview(separatorView)
+        separatorView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+
 }

@@ -55,7 +55,7 @@ class ModuleCell3: UICollectionViewCell {
         
         //        backgroundColor = .white
         
-        backgroundColor = UIColor(r: 201, g: 224, b: 255)
+        backgroundColor = userColors?.cellColor
         
         
         // all the subareas in the cell (add JmenuItem to JmenuBar)

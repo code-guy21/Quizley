@@ -16,12 +16,8 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     
-        collectionView?.backgroundColor = .white
-    
-        collectionView?.register(AddCellHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
-        
-        collectionView?.register(AddCellFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footerId")
     
         collectionView?.register(AddCell.self, forCellWithReuseIdentifier: cellID)
     
@@ -37,12 +33,12 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
 
     fileprivate func setupNavigationBarItemList() {
         let navBar = navigationController?.navigationBar
-        navBar?.barTintColor = UIColor(r: 176, g: 21, b: 55)
+        navBar?.barTintColor = userColors?.navColor
         navBar?.isTranslucent = false
+        
+        
+        navigationItem.title = "Create a class"
     
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,7 +57,11 @@ class TeacherAddModuleController: UICollectionViewController, UICollectionViewDe
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: view.frame.width, height: 1200)
+    return CGSize(width: view.frame.width, height: 1500)
     }
-
+    
+    func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
 }

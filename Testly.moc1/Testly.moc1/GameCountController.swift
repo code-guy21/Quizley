@@ -19,6 +19,9 @@ class GameCountController: UIViewController {
     }()
     
     
+    var dictionary: [String:Any]?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +37,9 @@ class GameCountController: UIViewController {
             let modalStyle = UIModalTransitionStyle.flipHorizontal
             let gameController:GameController = GameController()
             gameController.modalTransitionStyle = modalStyle
+            gameController.dictionary = self.dictionary
             self.present(gameController, animated: true, completion: nil)
         }
     }
     
-    @IBAction func Start(sender: UIButton) {
-        
-        let modalStyle = UIModalTransitionStyle.flipHorizontal
-        let gameController:GameController = GameController()
-        gameController.modalTransitionStyle = modalStyle
-        self.present(gameController, animated: true, completion: nil)
-    }
 }

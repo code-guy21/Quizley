@@ -8,13 +8,16 @@
 
 import UIKit
 import GameKit
+import Firebase
 
 
 class RoundController {
+    
+    var dictionary: [String:Any]?
+    var questionsModel: QuestionsModel
     var questionsPerRound: Int
     var questionsAsked: Int
     var correctQuestions: Int
-    let questionsModel: QuestionsModel
     var selectedQuestion: QuestionModel
     var askedQuestion: [QuestionModel] = []  //collections to keep track of asked question
     
@@ -24,11 +27,12 @@ class RoundController {
     let wrong: UIColor = UIColor(r: 255, g: 102, b: 102)
     
     //constructor
-    init(questionsPerRound: Int = 4) {
+    init(questionsPerRound: Int = 4, dictionary: [String:Any?]) {
         self.questionsPerRound = questionsPerRound
         questionsAsked = 0
         correctQuestions = 0
-        questionsModel = QuestionsModel()
+        questionsModel = QuestionsModel(dictionary: dictionary)
+        //questionsModel
         selectedQuestion = questionsModel.getRandomQuestion()
     }
     

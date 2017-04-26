@@ -24,19 +24,21 @@ extension FIRDatabase {
         }
     }
     
-    static func fetchModuleWithMId(mId: String, completion: @escaping (Module) -> ()) {
+    static func fetchModuleWithMId(mId: String, completion: @escaping (Module, [String:Any]) -> ()) {
         
-            let uid = "fochXH9eJsY3Ek5CY7Agunxy4Bw2"
-        FIRDatabase.database().reference().child("modules").child(uid).child(mId).observeSingleEvent(of: .value, with: { (snapshot) in
+            //let uid = "fochXH9eJsY3Ek5CY7Agunxy4Bw2"
+        FIRDatabase.database().reference().child("modules").child(mId).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let moduleDictionary = snapshot.value as? [String: Any] else { return }
             
             let module = Module(mId: mId, dictionary: moduleDictionary)
             
-            completion(module)
+            completion(module, moduleDictionary)
             
         }) { (err) in
             print("Failed to fetch user for post", err)
         }
     }
+    
+
 }

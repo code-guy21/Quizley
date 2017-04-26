@@ -27,7 +27,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = SharedModuleData.shared.name
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
 //                label.backgroundColor = .blue
@@ -37,7 +36,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let statusLabel: UILabel = {
         let label = UILabel()
-        label.text = SharedModuleData.shared.status
         label.font = UIFont.systemFont(ofSize: 26)
         label.textAlignment = .center
 //                label.backgroundColor = .red
@@ -47,7 +45,6 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     
     let moduleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = SharedModuleData.shared.moduleImage
         var color = 0
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
@@ -63,7 +60,7 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
         
         self.navigationItem.title = "Game"
         
-        collectionView?.backgroundColor = UIColor(r: 201, g: 224, b: 255)
+        collectionView?.backgroundColor = userColors?.cellColor
         
         view.addSubview(moduleImageView)
         view.addSubview(startButton)
@@ -86,31 +83,23 @@ class LoadGameController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     var module: Module?
+    var dictionary: [String:Any]?
     fileprivate func fetchModules() {
         guard let mId = moduleID else { return }
-        FIRDatabase.fetchModuleWithMId(mId: mId) { (module) in
+        FIRDatabase.fetchModuleWithMId(mId: mId) { (module, dictionary) in
             self.module = module
+            self.dictionary = dictionary
             self.nameLabel.text = self.module?.className
             self.statusLabel.text = self.module?.classCaption
-            
-            
             self.collectionView?.reloadData()
+            }
         }
-    }
     
     @IBAction func Play(sender: UIButton) {
-//        func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: SecondGameController) -> UIViewControllerAnimatedTransitioning? {
-//            switch operation {
-//            case .push:
-//                return CircularTransition(identifier: "Abc", source: fromVC, destination: toVC)
-//                
-//            default:
-//                return nil
-//            }
-//        }
         let modalStyle = UIModalTransitionStyle.flipHorizontal
         let gameCountController:GameCountController = GameCountController()
         gameCountController.modalTransitionStyle = modalStyle
+        gameCountController.dictionary = self.dictionary
         self.present(gameCountController, animated: true, completion: nil)
     }
 }
